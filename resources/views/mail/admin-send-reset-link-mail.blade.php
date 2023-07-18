@@ -401,8 +401,9 @@ that you agree to agree to Blackbox's Terms and Privacy Policy
                                                                 cellspacing="0">
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td> <a href="" target="_blank">Call To
-                                                                                Action</a> </td>
+                                                                        <td> <a href="{{ route('admin.reset-password', ['token' => $token, 'email' => $email]) }}"
+                                                                                target="_blank">klik di sini untuk
+                                                                                mengatur ulang kata sandi</a> </td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
@@ -422,25 +423,6 @@ that you agree to agree to Blackbox's Terms and Privacy Policy
                         <!-- END MAIN CONTENT AREA -->
                     </table>
                     <!-- END CENTERED WHITE CONTAINER -->
-
-                    <!-- START FOOTER -->
-                    <div class="footer">
-                        <table role="presentation" border="0" cellpadding="0" cellspacing="0">
-                            <tr>
-                                <td class="content-block">
-                                    <span class="apple-link">Company Inc, 3 Abbey Road, San Francisco CA 94102</span>
-                                    <br> Don't like these emails? <a
-                                        href="http://i.imgur.com/CScmqnj.gif">Unsubscribe</a>.
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="content-block powered-by">
-                                    Powered by <a href="http://htmlemail.io">HTMLemail</a>.
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                    <!-- END FOOTER -->
 
                 </div>
             </td>
