@@ -53,7 +53,7 @@ class AdminAuthenticationController extends Controller
 
         Mail::to($request->email)->send(new AdminSendResetLinkMail($token, $request->email));
 
-        return redirect()->back()->with('success', 'Email telah dikirim ke alamat email Anda, silakan periksa!');
+        return redirect()->back()->with('success', __('Email telah dikirim ke alamat email Anda, silakan periksa!'));
     }
 
     public function resetPassword($token)
@@ -73,6 +73,6 @@ class AdminAuthenticationController extends Controller
         $admin->remember_token = null;
         $admin->save();
 
-        return redirect()->route('admin.login')->with('success', 'Kata sandi berhasil diubah');
+        return redirect()->route('admin.login')->with('success', __('Kata sandi berhasil diubah'));
     }
 }
