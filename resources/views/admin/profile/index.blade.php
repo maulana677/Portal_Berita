@@ -18,32 +18,48 @@
             <div class="row mt-sm-4">
                 <div class="col-12 col-md-6">
                     <div class="card">
-                        <form method="post" class="needs-validation" novalidate="">
+                        <form method="post" action="{{ route('admin.profile.update',auth()->guard('admin')->user()->id) }}"
+                            class="needs-validation" novalidate="" enctype="multipart/form-data">
+                            @csrf
+                            @method('PUT')
                             <div class="card-header">
                                 <h4>{{ __('Edit Profile') }}</h4>
                             </div>
                             <div class="card-body">
-                                <div id="image-preview" class="image-preview ml-3 mb-3">
-                                    <label for="image-upload" id="image-label">Choose File</label>
-                                    <input type="file" name="image" id="image-upload">
+                                <div class="col-12">
+                                    <div id="image-preview" class="image-preview mb-3">
+                                        <label for="image-upload" id="image-label">{{ __('Choose File') }}</label>
+                                        <input type="file" name="image" id="image-upload">
+                                    </div>
+                                    @error('image')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-12">
                                     <label>{{ __('First Name') }}</label>
-                                    <input type="text" class="form-control" value="{{ $user->name }}" required="">
+                                    <input type="text" class="form-control" value="{{ $user->name }}" required=""
+                                        name="name">
                                     <div class="invalid-feedback">
                                         {{ __('Please fill in the name') }}
                                     </div>
+                                    @error('name')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-12">
                                     <label>{{ __('Email') }}</label>
-                                    <input type="text" class="form-control" value="{{ $user->email }}" required="">
+                                    <input type="text" class="form-control" value="{{ $user->email }}" required=""
+                                        name="email">
                                     <div class="invalid-feedback">
                                         {{ __('Please fill in the email name') }}
                                     </div>
+                                    @error('email')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
-                            </div>
-                            <div class="card-footer text-right">
-                                <button class="btn btn-primary">{{ __('Save Changes') }}</button>
+                                <div class="card-footer text-right">
+                                    <button class="btn btn-primary">{{ __('Save Changes') }}</button>
+                                </div>
                             </div>
                         </form>
                     </div>
