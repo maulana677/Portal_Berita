@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminProfileUpdateRequest;
+use App\Models\Admin;
 use App\Traits\FileUploadTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -57,10 +58,18 @@ class ProfileController extends Controller
      */
     public function update(AdminProfileUpdateRequest $request, string $id)
     {
-        /**yang menagani gambar */
+        /**yang menangani gambar */
         $imagePath = $this->handleFileUpload($request, 'image', $request->old_image);
+        
+        /** simpan data yang ingin di update */
+        $admin = Admin::findOrFail($id);
+        $admin->image = !empty($imagePath) ? $imagePath : $request->old_image;
+        $admin->name = $request->name;
+        $admin->email = $request->email;
+        $admin->save();
 
-        dd($imagePath);
+        return redirect()->back();
+
     }
 
     /**

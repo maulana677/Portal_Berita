@@ -103,7 +103,17 @@
                 </div>
             </div>
         </div>
-
-
     </section>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('.image-preview').css({
+                "background-image": "url({{ asset($user->image) }})",
+                "background-size": "cover",
+                "background-position": "center center"
+            });
+        })
+    </script>
+@endpush
