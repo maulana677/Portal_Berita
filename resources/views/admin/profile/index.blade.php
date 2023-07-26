@@ -5,7 +5,7 @@
         <div class="section-header">
             <h1>{{ __('Profile') }}</h1>
             <div class="section-header-breadcrumb">
-                <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+                <div class="breadcrumb-item active"><a href="{{ route('admin.dashboard') }}">Dashboard</a></div>
                 <div class="breadcrumb-item">Profile</div>
             </div>
         </div>
@@ -68,30 +68,42 @@
 
                 <div class="col-12 col-md-6">
                     <div class="card">
-                        <form method="post" class="needs-validation" novalidate="">
+                        <form method="post" action="{{ route('admin.profile-password.update', $user->id) }}"
+                            class="needs-validation" novalidate="">
+                            @csrf
+                            @method('PUT')
                             <div class="card-header">
                                 <h4>{{ __('Update Password') }}</h4>
                             </div>
                             <div class="card-body">
                                 <div class="form-group col-12">
                                     <label>{{ __('Old Password') }}</label>
-                                    <input type="text" class="form-control" value="" required="">
+                                    <input type="password" class="form-control" value="" required=""
+                                        name="current_password">
                                     <div class="invalid-feedback">
-                                        {{ __('Please fill in the name') }}
+                                        {{ __('Please fill in the old password') }}
                                     </div>
+                                    @error('current_password')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-12">
                                     <label>{{ __('New Password') }}</label>
-                                    <input type="text" class="form-control" value="" required="">
+                                    <input type="password" class="form-control" value="" required=""
+                                        name="password">
                                     <div class="invalid-feedback">
-                                        {{ __('Please fill in the email name') }}
+                                        {{ __('Please fill in the new password') }}
                                     </div>
+                                    @error('password')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-12">
                                     <label>{{ __('Confirmed Password') }}</label>
-                                    <input type="text" class="form-control" value="" required="">
+                                    <input type="password" class="form-control" value="" required=""
+                                        name="password_confirmation">
                                     <div class="invalid-feedback">
-                                        {{ __('Please fill in the email name') }}
+                                        {{ __('Please fill in the confirmed password') }}
                                     </div>
                                 </div>
                             </div>
