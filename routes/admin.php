@@ -27,5 +27,5 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
     Route::resource('profile', ProfileController::class);
 
     // route bahasa
-    Route::resource('bahsasa', LanguageController::class);
+    Route::resource('bahasa', LanguageController::class);
 });

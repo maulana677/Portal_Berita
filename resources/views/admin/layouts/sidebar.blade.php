@@ -20,7 +20,7 @@
             </li>
             <li class="menu-header">Starter</li>
 
-            <li><a class="nav-link" href="{{ route('admin.bahsasa.index') }}"><i class="far fa-square"></i>
+            <li><a class="nav-link" href="{{ route('admin.bahasa.index') }}"><i class="far fa-square"></i>
                     <span>Bahasa</span></a></li>
 
             {{--  <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank Page</span></a></li>  --}}
