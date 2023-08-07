@@ -20,14 +20,23 @@
                                 <option value="{{ $key }}">{{ $lang['name'] }}</option>
                             @endforeach
                         </select>
+                        @error('lang')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="">Name</label>
                         <input readonly name="name" type="text" class="form-control" id="name">
+                        @error('name')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="">Slug</label>
                         <input readonly name="slug" type="text" class="form-control" id="slug">
+                        @error('slug')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="">Is it default? </label>
@@ -35,6 +44,9 @@
                             <option value="0">Tidak</option>
                             <option value="1">Ya</option>
                         </select>
+                        @error('default')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="form-group">
                         <label for="">Status</label>
@@ -42,6 +54,9 @@
                             <option value="1">Aktif</option>
                             <option value="0">Nonaktif</option>
                         </select>
+                        @error('status')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <button type="submit" class="btn btn-primary">Tambah</button>
                 </form>

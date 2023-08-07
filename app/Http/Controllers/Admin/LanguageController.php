@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\AdminLanguageStoreRequest;
+use App\Models\Language;
 use Illuminate\Http\Request;
 
 class LanguageController extends Controller
@@ -26,9 +28,19 @@ class LanguageController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AdminLanguageStoreRequest $request)
     {
-        dd($request->all());
+        $bahasa = new Language();
+        $bahasa->name = $request->name;
+        $bahasa->lang = $request->lang;
+        $bahasa->slug = $request->slug;
+        $bahasa->default = $request->default;
+        $bahasa->status = $request->status;
+        $bahasa->save();
+
+        toast( __('Data berhasil di simpan'),'success')->width('350');
+
+        return redirect()->route('admin.bahasa.index');
     }
 
     /**
