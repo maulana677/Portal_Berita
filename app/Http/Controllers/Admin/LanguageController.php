@@ -13,8 +13,9 @@ class LanguageController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        return view('admin.bahasa.index');
+    {   
+        $bahasa = Language::all();
+        return view('admin.bahasa.index', compact('bahasa'));
     }
 
     /**

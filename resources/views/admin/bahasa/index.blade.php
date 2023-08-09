@@ -3,20 +3,75 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Bahasa</h1>
+            <h1>{{ __('Bahasa') }}</h1>
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>Semua Bahasa</h4>
+                <h4>{{ __('Semua Bahasa') }}</h4>
                 <div class="card-header-action">
                     <a href="{{ route('admin.bahasa.create') }}" class="btn btn-primary">
-                        <i class="fas fa-plus"></i> Tambah
+                        <i class="fas fa-plus"></i> {{ __('Tambah') }}
                     </a>
                 </div>
             </div>
             <div class="card-body">
-                <p>Write something here</p>
+                <div class="table-responsive">
+                    <table class="table table-striped" id="table-1">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    #
+                                </th>
+                                <th>{{ __('Nama Bahasa') }}</th>
+                                <th>{{ __('Kode Bahasa') }}</th>
+                                <th>{{ __('Default') }}</th>
+                                <th>{{ __('Status') }}</th>
+                                <th>{{ __('Action') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($bahasa as $bahasa)
+                                <tr>
+                                    <td>
+                                        {{ $bahasa->id }}
+                                    </td>
+                                    <td>{{ $bahasa->name }}</td>
+                                    <td>{{ $bahasa->lang }}</td>
+                                    <td>
+                                        @if ($bahasa->default == 1)
+                                            <span class="badge badge-primary">{{ __('Default') }}</span>
+                                        @else
+                                            <span class="badge badge-warning">{{ __('Tidak') }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        @if ($bahasa->status == 1)
+                                            <span class="badge badge-success">{{ __('Aktif') }}</span>
+                                        @else
+                                            <span class="badge badge-danger">{{ __('Non Aktif') }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="#" class="btn btn-secondary">Detail</a>
+                                        <a href="#" class="btn btn-secondary">Detail</a>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    <script>
+        $("#table-1").dataTable({
+            "columnDefs": [{
+                "sortable": false,
+                "targets": [2, 3]
+            }]
+        });
+    </script>
+@endpush
