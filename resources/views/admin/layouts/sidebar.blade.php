@@ -20,9 +20,11 @@
             </li>
             <li class="menu-header">Starter</li>
 
+            <li><a class="nav-link" href="{{ route('admin.kategori.index') }}"><i class="far fa-square"></i>
+                    <span>Kategori</span></a></li>
+
             <li><a class="nav-link" href="{{ route('admin.bahasa.index') }}"><i class="far fa-square"></i>
                     <span>Bahasa</span></a></li>
-
             {{--  <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank Page</span></a></li>  --}}
 
             {{--  <li class="dropdown">

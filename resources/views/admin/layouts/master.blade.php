@@ -134,8 +134,6 @@
                                 console.error(error);
                             }
                         });
-
-
                     }
                 })
             })
