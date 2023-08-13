@@ -87,8 +87,11 @@ class LanguageController extends Controller
     {
         try {
             $bahasa = Language::findOrFail($id);
+            if ($bahasa->lang === 'en') {
+                return response(['status' => 'error', 'message' => __('Tidak dapat menghapus data yang ini')]);
+            }
             $bahasa->delete();
-            return response(['status' => 'success', 'message' => __('Data berhasil dihapus!')]);  
+            return response(['status' => 'success', 'message' => __('Data berhasil dihapus!')]);
         } catch (\Throwable $th) {
             return response(['status' => 'error', 'message' => __('something went wrong!')]);
         }
