@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Language;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -22,7 +23,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $bahasa = Language::all();
+        return view('admin.kategori.create', compact('bahasa'));
     }
 
     /**
