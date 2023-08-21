@@ -14,13 +14,13 @@
                     @csrf
                     <div class="form-group">
                         <label for="">{{ __('Bahasa') }}</label>
-                        <select name="lang" id="language-select" class="form-control select2">
+                        <select name="language" id="language-select" class="form-control select2">
                             <option value="">--{{ __('Pilih') }}--</option>
                             @foreach ($bahasa as $lang)
                                 <option value="{{ $lang->lang }}">{{ $lang->name }}</option>
                             @endforeach
                         </select>
-                        @error('lang')
+                        @error('language')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
@@ -57,16 +57,3 @@
         </div>
     </section>
 @endsection
-
-@push('scripts')
-    <script>
-        $(document).ready(function() {
-            $('#language-select').on('change', function() {
-                let value = $(this).val();
-                let name = $(this).children(':selected').text();
-                $('#slug').val(value);
-                $('#name').val(name);
-            })
-        })
-    </script>
-@endpush
