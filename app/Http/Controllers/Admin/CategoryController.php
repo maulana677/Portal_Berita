@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminCategoryCreateRequest;
+use App\Http\Requests\AdminCategoryUpdateRequest;
 use App\Models\Category;
 use App\Models\Language;
 use Illuminate\Http\Request;
@@ -59,15 +60,27 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $languages = Language::all();
+        $kategori = Category::findOrFail($id);
+        return view('admin.kategori.edit', compact('languages', 'kategori'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AdminCategoryUpdateRequest $request, string $id)
     {
-        //
+        $kategori = Category::findOrFail($id);
+        $kategori->name = $request->name;
+        $kategori->slug = \Str::slug($request->name);
+        $kategori->language = $request->language;
+        $kategori->show_at_nav = $request->show_at_nav;
+        $kategori->status = $request->status;
+        $kategori->save();
+
+        toast( __('Data berhasil diperbarui'),'success')->width('350');
+
+        return redirect()->route('admin.kategori.index');
     }
 
     /**

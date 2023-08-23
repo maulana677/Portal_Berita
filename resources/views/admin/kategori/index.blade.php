@@ -69,8 +69,8 @@
                                                     </td>
 
                                                     <td>
-                                                        <a href="" class="btn btn-primary"><i
-                                                                class="fas fa-edit"></i></a>
+                                                        <a href="{{ route('admin.kategori.edit', $category->id) }}"
+                                                            class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                                         <a href="" class="btn btn-danger delete-item"><i
                                                                 class="fas fa-trash-alt"></i></a>
                                                     </td>
