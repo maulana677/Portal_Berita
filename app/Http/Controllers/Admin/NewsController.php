@@ -22,7 +22,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        $bahasa = Language::all();
+        return view('admin.berita.create', compact('bahasa'));
     }
 
     /**

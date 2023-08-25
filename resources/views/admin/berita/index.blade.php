@@ -9,7 +9,7 @@
             <div class="card-header">
                 <h4>{{ __('Semua Berita') }}</h4>
                 <div class="card-header-action">
-                    <a href="{{ route('admin.kategori.create') }}" class="btn btn-primary">
+                    <a href="{{ route('admin.berita.create') }}" class="btn btn-primary">
                         <i class="fas fa-plus"></i> {{ __('Tambah') }}
                     </a>
                 </div>
