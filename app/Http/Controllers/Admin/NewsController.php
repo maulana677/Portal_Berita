@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Language;
 use Illuminate\Http\Request;
 
@@ -15,6 +16,15 @@ class NewsController extends Controller
     {
         $languages = Language::all();
         return view('admin.berita.index', compact('languages'));
+    }
+
+    /**
+     * Fetch category depending on language
+     */
+    public function fetchCategory(Request $request)
+    {
+        $categories = Category::where('language', $request->lang)->get();
+        return $categories;
     }
 
     /**
