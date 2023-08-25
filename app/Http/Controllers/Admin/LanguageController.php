@@ -40,7 +40,7 @@ class LanguageController extends Controller
         $bahasa->status = $request->status;
         $bahasa->save();
 
-        toast( __('Data berhasil di simpan'),'success')->width('350');
+        toast( __('Created Successfully'),'success')->width('350');
 
         return redirect()->route('admin.bahasa.index');
     }
