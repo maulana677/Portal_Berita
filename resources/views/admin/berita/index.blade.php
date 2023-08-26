@@ -26,10 +26,11 @@
 
                 </ul>
                 <div class="tab-content tab-bordered" id="myTab3Content">
-                    {{--  @foreach ($languages as $language)
+                    @foreach ($languages as $language)
                         @php
-                            $categories = \App\Models\Category::where('language', $language->lang)
-                                ->orderByDesc('id')
+                            $news = \App\Models\News::with('category')
+                                ->where('language', $language->lang)
+                                ->orderBy('id', 'DESC')
                                 ->get();
                         @endphp
                         <div class="tab-pane fade show {{ $loop->index === 0 ? 'active' : '' }}"
@@ -42,38 +43,62 @@
                                                 <th class="text-center">
                                                     #
                                                 </th>
-                                                <th>{{ __('Bahasa') }}</th>
-                                                <th>{{ __('Kode Bahasa') }}</th>
-                                                <th>{{ __('In Nav') }}</th>
+                                                <th>{{ __('Gambar') }}</th>
+                                                <th>{{ __('Judul') }}</th>
+                                                <th>{{ __('Kategori') }}</th>
+                                                <th>{{ __('In Breaking') }}</th>
+                                                <th>{{ __('In Slider') }}</th>
+                                                <th>{{ __('In Popular') }}</th>
                                                 <th>{{ __('Status') }}</th>
                                                 <th>{{ __('Action') }}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($categories as $category)
+                                            @foreach ($news as $item)
                                                 <tr>
-                                                    <td>{{ $category->id }}</td>
-                                                    <td>{{ $category->name }}</td>
-                                                    <td>{{ $category->language }}</td>
+                                                    <td>{{ $item->id }}</td>
                                                     <td>
-                                                        @if ($category->show_at_nav == 1)
-                                                            <span class="badge badge-primary">{{ __('Ya') }}</span>
-                                                        @else
-                                                            <span class="badge badge-danger">{{ __('Tidak') }}</span>
-                                                        @endif
+                                                        <img src="{{ asset($item->image) }}" width="100" alt="">
                                                     </td>
+                                                    <td>{{ $item->title }}</td>
+                                                    <td>{{ $item->category->name }}</td>
+
                                                     <td>
-                                                        @if ($category->status == 1)
-                                                            <span class="badge badge-success">{{ __('Ya') }}</span>
-                                                        @else
-                                                            <span class="badge badge-danger">{{ __('Tidak') }}</span>
-                                                        @endif
+                                                        <label class="custom-switch mt-2">
+                                                            <input {{ $item->is_breaking_news === 1 ? 'checked' : '' }}
+                                                                value="1" type="checkbox" class="custom-switch-input">
+                                                            <span class="custom-switch-indicator"></span>
+                                                        </label>
                                                     </td>
 
                                                     <td>
-                                                        <a href="{{ route('admin.kategori.edit', $category->id) }}"
+                                                        <label class="custom-switch mt-2">
+                                                            <input {{ $item->show_at_slider === 1 ? 'checked' : '' }}
+                                                                value="1" type="checkbox" class="custom-switch-input">
+                                                            <span class="custom-switch-indicator"></span>
+                                                        </label>
+                                                    </td>
+
+                                                    <td>
+                                                        <label class="custom-switch mt-2">
+                                                            <input {{ $item->show_at_popular === 1 ? 'checked' : '' }}
+                                                                value="1" type="checkbox" class="custom-switch-input">
+                                                            <span class="custom-switch-indicator"></span>
+                                                        </label>
+                                                    </td>
+
+                                                    <td>
+                                                        <label class="custom-switch mt-2">
+                                                            <input {{ $item->status === 1 ? 'checked' : '' }}
+                                                                value="1" type="checkbox" class="custom-switch-input">
+                                                            <span class="custom-switch-indicator"></span>
+                                                        </label>
+                                                    </td>
+
+                                                    <td>
+                                                        <a href="{{ route('admin.kategori.edit', $item->id) }}"
                                                             class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                                        <a href="{{ route('admin.kategori.destroy', $category->id) }}"
+                                                        <a href="{{ route('admin.kategori.destroy', $item->id) }}"
                                                             class="btn btn-danger delete-item"><i
                                                                 class="fas fa-trash-alt"></i></a>
                                                     </td>
@@ -85,7 +110,7 @@
                                 </div>
                             </div>
                         </div>
-                    @endforeach  --}}
+                    @endforeach
                 </div>
             </div>
 
@@ -100,7 +125,10 @@
                 "columnDefs": [{
                     "sortable": false,
                     "targets": [2, 3]
-                }]
+                }],
+                "order": [
+                    [0, 'desc']
+                ]
             });
         @endforeach
     </script>
