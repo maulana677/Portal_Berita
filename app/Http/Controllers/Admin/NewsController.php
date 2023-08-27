@@ -85,11 +85,19 @@ class NewsController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Change toggle status of news.
      */
-    public function show(string $id)
+    public function toggleBeritaStatus(Request $request)
     {
-        //
+        try {
+            $news = News::findOrFail($request->id);
+            $news->{$request->name} = $request->status;
+            $news->save();
+
+            return response(['status' => 'success', 'message' => __('Updated successfully!')]);
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
