@@ -104,9 +104,9 @@
                                                     </td>
 
                                                     <td>
-                                                        <a href="{{ route('admin.kategori.edit', $item->id) }}"
+                                                        <a href="{{ route('admin.berita.edit', $item->id) }}"
                                                             class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                                        <a href="{{ route('admin.kategori.destroy', $item->id) }}"
+                                                        <a href="{{ route('admin.berita.destroy', $item->id) }}"
                                                             class="btn btn-danger delete-item"><i
                                                                 class="fas fa-trash-alt"></i></a>
                                                     </td>
