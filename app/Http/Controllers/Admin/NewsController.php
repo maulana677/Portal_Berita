@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminNewsCreateRequest;
+use App\Http\Requests\AdminNewsUpdateRequest;
 use App\Models\Category;
 use App\Models\Language;
 use App\Models\News;
@@ -114,9 +115,49 @@ class NewsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AdminNewsUpdateRequest $request, string $id)
     {
-        //
+        $news = News::findOrFail($id);
+
+        /** Untuk gambar */
+        $imagePath = $this->handleFileUpload($request, 'image', $news->image);
+
+        $news->language = $request->language;
+        $news->category_id = $request->category;
+        $news->image = !empty($imagePath) ? $imagePath : $news->image;
+        $news->title = $request->title;
+        $news->slug = \Str::slug($request->title);
+        $news->content = $request->content;
+        $news->meta_title = $request->meta_title;
+        $news->meta_description = $request->meta_description;
+        $news->is_breaking_news = $request->is_breaking_news == 1 ? 1 : 0;
+        $news->show_at_slider = $request->show_at_slider == 1 ? 1 : 0;
+        $news->show_at_popular = $request->show_at_popular == 1 ? 1 : 0;
+        $news->status = $request->status == 1 ? 1 : 0;
+        $news->save();
+
+        $tags = explode(',', $request->tags);
+        $tagIds = [];
+
+        /** Delete Previous Tags*/
+        $news->tags()->delete();
+
+        /** Detach tags form pivot table */
+        $news->tags()->detach($news->tags);
+
+        foreach ($tags as $tag) {
+            $item = new Tag();
+            $item->name = $tag;
+            $item->save();
+
+            $tagIds[] = $item->id;
+        }
+
+        $news->tags()->attach($tagIds);
+
+        toast(__('Updated Successfully!'), 'success')->width('330');
+
+        return redirect()->route('admin.berita.index');
     }
 
     /**
