@@ -133,7 +133,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">{{ __('Tambah') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ __('Edit') }}</button>
                 </form>
             </div>
         </div>

@@ -109,6 +109,8 @@
                                                         <a href="{{ route('admin.berita.destroy', $item->id) }}"
                                                             class="btn btn-danger delete-item"><i
                                                                 class="fas fa-trash-alt"></i></a>
+                                                        <a href="{{ route('admin.berita-copy', $item->id) }}"
+                                                            class="btn btn-primary"><i class="fas fa-copy"></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach

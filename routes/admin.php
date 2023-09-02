@@ -8,7 +8,7 @@ use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::get('login', [AdminAuthenticationController::class, 'login'])->name('login');
     Route::post('login', [AdminAuthenticationController::class, 'handleLogin'])->name('handle-login');
     Route::post('logout', [AdminAuthenticationController::class, 'logout'])->name('logout');
@@ -22,7 +22,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function(){
     Route::post('reset-password', [AdminAuthenticationController::class, 'handleresetPassword'])->name('reset-password.send');
 });
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']], function(){
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']], function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // profile routes
     Route::put('profile-password-update/{id}', [ProfileController::class, 'passwordUpdate'])->name('profile-password.update');
@@ -37,5 +37,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
     // route Berita
     Route::get('fetch-berita-category', [NewsController::class, 'fetchCategory'])->name('fetch-berita-category');
     Route::get('toggle-berita-status', [NewsController::class, 'toggleBeritaStatus'])->name('toggle-berita-status');
+    Route::get('berita-copy/{id}', [NewsController::class, 'copyNews'])->name('berita-copy');
     Route::resource('berita', NewsController::class);
 });

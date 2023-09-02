@@ -14,19 +14,28 @@ trait FileUploadTrait
             return null;
         }
 
-        /** Hapus gambar yang ada jika ada */ 
+        /** Hapus gambar yang ada jika ada */
         if ($oldPath && File::exists(public_path($oldPath))) {
             File::delete(public_path($oldPath));
         }
 
         $file = $request->file($fieldName);
         $extension = $file->getClientOriginalExtension();
-        $updatedFileName = \Str::random(30).'.'.$extension;
+        $updatedFileName = \Str::random(30) . '.' . $extension;
 
         $file->move(public_path($dir), $updatedFileName);
 
-        $filePath = $dir.'/'.$updatedFileName;
+        $filePath = $dir . '/' . $updatedFileName;
 
         return $filePath;
+    }
+
+    /** menangani penghapusan file */
+    public function deleteFile(string $path): void
+    {
+        /** Hapus gambar yang ada jika ada */
+        if ($path && File::exists(public_path($path))) {
+            File::delete(public_path($path));
+        }
     }
 }
