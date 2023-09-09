@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\News;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -31,8 +32,11 @@ class HomeController extends Controller
             ->withLocalize()
             ->orderBy('id', 'DESC')->take(4)->get();
 
+        $mostCommonTags = $this->mostCommonTags();
+
         $this->countView($news);
-        return view('frontend.news-details', compact('news', 'recentNews'));
+
+        return view('frontend.news-details', compact('news', 'recentNews', 'mostCommonTags'));
     }
 
     public function countView($news)
@@ -49,5 +53,15 @@ class HomeController extends Controller
             session(['viewed_posts' => [$news->id]]);
             $news->increment('views');
         }
+    }
+
+    public function mostCommonTags()
+    {
+        return Tag::select('name', \DB::raw('COUNT(*) as count'))
+            ->where('language', getLanguage())
+            ->groupBy('name')
+            ->orderByDesc('count')
+            ->take(15)
+            ->get();
     }
 }

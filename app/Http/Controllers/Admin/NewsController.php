@@ -73,6 +73,7 @@ class NewsController extends Controller
         foreach ($tags as $tag) {
             $item = new Tag();
             $item->name = $tag;
+            $item->language = $news->language;
             $item->save();
 
             $tagIds[] = $item->id;
@@ -107,9 +108,9 @@ class NewsController extends Controller
     public function edit(string $id)
     {
         $bahasa = Language::all();
-        $berita = News::findOrFail($id);
-        $categories = Category::where('language', $berita->language)->get();
-        return view('admin.berita.edit', compact('bahasa', 'berita', 'categories'));
+        $news = News::findOrFail($id);
+        $categories = Category::where('language', $news->language)->get();
+        return view('admin.berita.edit', compact('bahasa', 'news', 'categories'));
     }
 
     /**
@@ -120,7 +121,7 @@ class NewsController extends Controller
         $news = News::findOrFail($id);
 
         /** Untuk gambar */
-        $imagePath = $this->handleFileUpload($request, 'image');
+        $imagePath = $this->handleFileUpload($request, 'image', $news->image);
 
         $news->language = $request->language;
         $news->category_id = $request->category;
@@ -148,6 +149,7 @@ class NewsController extends Controller
         foreach ($tags as $tag) {
             $item = new Tag();
             $item->name = $tag;
+            $item->language = $news->language;
             $item->save();
 
             $tagIds[] = $item->id;

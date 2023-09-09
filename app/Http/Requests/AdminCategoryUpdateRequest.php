@@ -23,7 +23,7 @@ class AdminCategoryUpdateRequest extends FormRequest
     {
         $categoryId = $this->route('category');
         return [
-            'name' => ['required', 'max:255', 'unique:categories,name,'.$categoryId],
+            'name' => ['max:255', 'unique:categories,name,' . $categoryId],
             'show_at_nav' => ['required', 'boolean'],
             'language' => ['required'],
             'status' => ['required', 'boolean']
