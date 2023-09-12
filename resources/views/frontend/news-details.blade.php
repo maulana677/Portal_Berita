@@ -211,14 +211,14 @@
                                             <div class="reply">
                                                 <a href="#" class="comment-reply-link" data-toggle="modal"
                                                     data-target="#exampleModal-{{ $comment->id }}">Reply</a>
-                                                <span>
+                                                <span class="delete-msg" data-id="{{ $comment->id }}">
                                                     <i class="fa fa-trash"></i>
                                                 </span>
                                             </div>
                                         </aside>
 
-                                        @if ($comment->replay()->count() > 0)
-                                            @foreach ($comment->replay as $replay)
+                                        @if ($comment->reply()->count() > 0)
+                                            @foreach ($comment->reply as $reply)
                                                 <ol class="children">
                                                     <li class="comment">
                                                         <aside class="comment-body">
@@ -226,28 +226,32 @@
                                                                 <div class="comment-author vcard">
                                                                     <img src="{{ asset('frontend/assets/images/avatar.png') }}"
                                                                         class="avatar" alt="image">
-                                                                    <b class="fn">{{ $replay->user->name }}</b>
+                                                                    <b class="fn">{{ $reply->user->name }}</b>
                                                                     <span class="says">says:</span>
                                                                 </div>
 
                                                                 <div class="comment-metadata">
                                                                     <a href="javascript:;">
-                                                                        <span>{{ date('M, d, Y H:i', strtotime($replay->created_at)) }}</span>
+                                                                        <span>{{ date('M, d, Y H:i', strtotime($reply->created_at)) }}</span>
                                                                     </a>
                                                                 </div>
                                                             </div>
 
                                                             <div class="comment-content">
                                                                 <p>
-                                                                    {{ $replay->comment }}
+                                                                    {{ $reply->comment }}
                                                                 </p>
                                                             </div>
 
                                                             <div class="reply">
-                                                                <a href="#" class="comment-reply-link"
-                                                                    data-toggle="modal"
-                                                                    data-target="#exampleModal-{{ $comment->id }}">Reply</a>
-                                                                <span>
+                                                                @if ($loop->last)
+                                                                    <a href="#" class="comment-reply-link"
+                                                                        data-toggle="modal"
+                                                                        data-target="#exampleModal-{{ $comment->id }}">Reply</a>
+                                                                @endif
+
+                                                                <span class="delete-msg" style="margin-left: auto;"
+                                                                    data-id="{{ $reply->id }}">
                                                                     <i class="fa fa-trash"></i>
                                                                 </span>
                                                             </div>
@@ -733,3 +737,53 @@
         </div>
     </section>
 @endsection
+
+@push('content')
+    <script>
+        $(document).ready(function() {
+            $('.delete-msg').on('click', function(e) {
+                e.preventDefault();
+                let id = $(this).data('id');
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+
+                        $.ajax({
+                            method: 'DELETE',
+                            url: "{{ route('news-comment-destroy') }}",
+                            data: {
+                                id: id
+                            },
+                            success: function(data) {
+                                if (data.status === 'success') {
+                                    Swal.fire(
+                                        'Deleted!',
+                                        data.message,
+                                        'success'
+                                    )
+                                    window.location.reload();
+                                } else if (data.status === 'error') {
+                                    Swal.fire(
+                                        'Error!',
+                                        data.message,
+                                        'error'
+                                    )
+                                }
+                            },
+                            error: function(xhr, status, error) {
+                                console.error(error);
+                            }
+                        });
+                    }
+                })
+            })
+        })
+    </script>
+@endpush
