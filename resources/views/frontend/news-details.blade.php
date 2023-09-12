@@ -330,27 +330,27 @@
                         </div>
                     @endauth
 
-
-
                     <!-- end comment -->
-
-
 
                     <div class="row">
                         <div class="col-md-6">
                             <div class="single_navigation-prev">
-                                <a href="#">
-                                    <span>previous post</span>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rem, similique.
-                                </a>
+                                @if ($previousPost)
+                                    <a href="{{ route('news-details', $previousPost->slug) }}">
+                                        <span>{{ __('previous post') }}</span>
+                                        {!! truncate($previousPost->title) !!}
+                                    </a>
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="single_navigation-next text-left text-md-right">
-                                <a href="#">
-                                    <span>next post</span>
-                                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis, nesciunt.
-                                </a>
+                                @if ($nextPost)
+                                    <a href="{{ route('news-details', $nextPost->slug) }}">
+                                        <span>{{ __('next post') }}</span>
+                                        {!! truncate($nextPost->title) !!}
+                                    </a>
+                                @endif
                             </div>
                         </div>
                     </div>
