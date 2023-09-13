@@ -24,10 +24,13 @@ class HomeController extends Controller
 
     public function ShowNews(string $slug)
     {
+
         $news = News::with(['auther', 'tags', 'comments'])->where('slug', $slug)
             ->activeEntries()
             ->withLocalize()
             ->first();
+
+        $this->countView($news);
 
         $recentNews = News::with(['category', 'auther'])->where('slug', '!=', $news->slug)
             ->activeEntries()
@@ -46,9 +49,14 @@ class HomeController extends Controller
             ->withLocalize()
             ->orderBy('id', 'desc')->first();
 
-        $this->countView($news);
+        $relatedPosts = News::where('slug', '!=', $news->slug)
+            ->where('category_id', $news->category_id)
+            ->activeEntries()
+            ->withLocalize()
+            ->take(5)
+            ->get();
 
-        return view('frontend.news-details', compact('news', 'recentNews', 'mostCommonTags', 'nextPost', 'previousPost'));
+        return view('frontend.news-details', compact('news', 'recentNews', 'mostCommonTags', 'nextPost', 'previousPost', 'relatedPosts'));
     }
 
     public function countView($news)
