@@ -80,33 +80,43 @@
                                 <ul class="list-inline">
                                     <span class="share">share on:</span>
                                     <li class="list-inline-item">
-                                        <a class="btn btn-social-o facebook" href="#">
+                                        <a class="btn btn-social-o facebook"
+                                            href="https://www.facebook.com/sharer/sharer.php?u={{ url()->current() }}"
+                                            target="_blank">
                                             <i class="fa fa-facebook-f"></i>
                                             <span>facebook</span>
                                         </a>
 
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="btn btn-social-o twitter" href="#">
+                                        <a class="btn btn-social-o twitter"
+                                            href="https://twitter.com/intent/tweet?text={{ $news->title }}&url={{ url()->current() }}"
+                                            target="_blank">
                                             <i class="fa fa-twitter"></i>
                                             <span>twitter</span>
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="btn btn-social-o whatsapp" href="#">
+                                        <a class="btn btn-social-o whatsapp"
+                                            href="https://wa.me/?text={{ $news->title }}%20{{ url()->current() }}"
+                                            target="_blank">
                                             <i class="fa fa-whatsapp"></i>
                                             <span>whatsapp</span>
                                         </a>
                                     </li>
                                     <li class="list-inline-item">
-                                        <a class="btn btn-social-o telegram" href="#">
+                                        <a class="btn btn-social-o telegram"
+                                            href="https://t.me/share/url?url={{ url()->current() }}&text={{ $news->title }}"
+                                            target="_blank">
                                             <i class="fa fa-telegram"></i>
                                             <span>telegram</span>
                                         </a>
                                     </li>
 
                                     <li class="list-inline-item">
-                                        <a class="btn btn-linkedin-o linkedin" href="#">
+                                        <a class="btn btn-linkedin-o linkedin"
+                                            href="https://www.linkedin.com/shareArticle?mini=true&url={{ url()->current() }}&title={{ $news->title }}"
+                                            target="_blank">
                                             <i class="fa fa-linkedin"></i>
                                             <span>linkedin</span>
                                         </a>
@@ -200,8 +210,8 @@
                                         <aside class="comment-body">
                                             <div class="comment-meta">
                                                 <div class="comment-author vcard">
-                                                    <img src="{{ asset('frontend/assets/images/avatar.png') }}" class="avatar"
-                                                        alt="image">
+                                                    <img src="{{ asset('frontend/assets/images/avatar.png') }}"
+                                                        class="avatar" alt="image">
                                                     <b class="fn">{{ $comment->user->name }}</b>
                                                     <span class="says">{{ __('says') }}:</span>
                                                 </div>
