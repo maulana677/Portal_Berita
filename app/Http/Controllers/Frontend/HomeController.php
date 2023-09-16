@@ -19,7 +19,14 @@ class HomeController extends Controller
             ->orderBy('id', 'DESC')
             ->take(10)
             ->get();
-        return view('frontend.home', compact('breakingNews'));
+        $heroSlider = News::with(['category', 'auther'])
+            ->where('show_at_slider', 1)
+            ->activeEntries()
+            ->withLocalize()
+            ->orderBy('id', 'DESC')->take(7)
+            ->get();
+
+        return view('frontend.home', compact('breakingNews', 'heroSlider'));
     }
 
     public function ShowNews(string $slug)
