@@ -94,7 +94,7 @@
     </div>
     <!-- End Popular news header-->
     <!-- Popular news carousel -->
-    <div class="popular__news-header-carousel">
+    {{--  <div class="popular__news-header-carousel">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -104,8 +104,7 @@
                             <div class="article__entry">
                                 <div class="article__image">
                                     <a href="#">
-                                        <img src="{{ asset('frontend/assets/images/newsimage5.png') }}" alt=""
-                                            class="img-fluid">
+                                        <img src="" alt="" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="article__content">
@@ -135,8 +134,7 @@
                             <div class="article__entry">
                                 <div class="article__image">
                                     <a href="#">
-                                        <img src="{{ asset('frontend/assets/images/newsimage6.png') }}" alt=""
-                                            class="img-fluid">
+                                        <img src="" alt="" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="article__content">
@@ -166,8 +164,7 @@
                             <div class="article__entry">
                                 <div class="article__image">
                                     <a href="#">
-                                        <img src="{{ asset('frontend/assets/images/newsimage7.png') }}" alt=""
-                                            class="img-fluid">
+                                        <img src="" alt="" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="article__content">
@@ -197,8 +194,7 @@
                             <div class="article__entry">
                                 <div class="article__image">
                                     <a href="#">
-                                        <img src="{{ asset('frontend/assets/images/newsimage8.png') }}" alt=""
-                                            class="img-fluid">
+                                        <img src="" alt="" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="article__content">
@@ -228,8 +224,7 @@
                             <div class="article__entry">
                                 <div class="article__image">
                                     <a href="#">
-                                        <img src="{{ asset('frontend/assets/images/newsimage8.png') }}" alt=""
-                                            class="img-fluid">
+                                        <img src="" alt="" class="img-fluid">
                                     </a>
                                 </div>
                                 <div class="article__content">
@@ -255,10 +250,9 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-    </div>
+    </div>  --}}
     <!-- End Popular news carousel -->
 </section>
