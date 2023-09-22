@@ -35,7 +35,63 @@
                         <div class="tab-pane fade show {{ $loop->index === 0 ? 'active' : '' }}"
                             id="home-{{ $language->lang }}" role="tabpanel" aria-labelledby="home-tab2">
                             <div class="card-body">
+                                <div class="form-group">
+                                    <label for="">{{ __('Category Section One') }}</label>
+                                    <input type="hidden" name="language" value="{{ $language->lang }}">
+                                    <select name="category_section_one" id="" class="form-control select2"
+                                        style="width: 100%;">
+                                        <option value="">--{{ __('Select') }}--</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('category_section_one')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
 
+                                <div class="form-group">
+                                    <label for="">{{ __('Category Section Two') }}</label>
+                                    <select name="category_section_two" id="" class="form-control select2"
+                                        style="width: 100%;">
+                                        <option value="">--{{ __('Select') }}--</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('category_section_two')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">{{ __('Category Section Three') }}</label>
+                                    <select name="category_section_three" id="" class="form-control select2"
+                                        style="width: 100%;">
+                                        <option value="">--{{ __('Select') }}--</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('category_section_three')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="">{{ __('Category Section Four') }}</label>
+                                    <select name="category_section_four" id="" class="form-control select2"
+                                        style="width: 100%;">
+                                        <option value="">--{{ __('Select') }}--</option>
+                                        @foreach ($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                    @error('category_section_on')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
                             </div>
                         </div>
                     @endforeach

@@ -14,7 +14,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="">{{ __('Bahasa') }}</label>
-                        <select name="language" id="language-select" class="form-control select2">
+                        <select name="language" id="language-select" class="form-control select2" style="width: 100%;">
                             <option value="">--{{ __('Pilih') }}--</option>
                             @foreach ($bahasa as $lang)
                                 <option value="{{ $lang->lang }}">{{ $lang->name }}</option>
@@ -26,7 +26,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">{{ __('Category') }}</label>
-                        <select name="category" id="category" class="form-control select2">
+                        <select name="category" id="category" class="form-control select2" style="width: 100%;">
                             <option value="">--{{ __('Pilih') }}--</option>
 
                         </select>

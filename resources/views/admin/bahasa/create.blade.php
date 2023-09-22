@@ -14,7 +14,7 @@
                     @csrf
                     <div class="form-group">
                         <label for="">{{ __('Bahasa') }}</label>
-                        <select name="lang" id="language-select" class="form-control select2">
+                        <select name="lang" id="language-select" class="form-control select2" style="width: 100%;">
                             <option value="">--{{ __('Pilih') }}--</option>
                             @foreach (config('language') as $key => $lang)
                                 <option value="{{ $key }}">{{ $lang['name'] }}</option>

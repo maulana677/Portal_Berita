@@ -15,7 +15,7 @@
                     @method('PUT')
                     <div class="form-group">
                         <label for="">{{ __('Bahasa') }}</label>
-                        <select name="language" id="language-select" class="form-control select2">
+                        <select name="language" id="language-select" class="form-control select2" style="width: 100%;">
                             <option value="">--{{ __('Pilih') }}--</option>
                             @foreach ($bahasa as $lang)
                                 <option {{ $lang->lang === $news->language ? 'selected' : '' }} value="{{ $lang->lang }}">
@@ -28,7 +28,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">{{ __('Category') }}</label>
-                        <select name="category" id="category" class="form-control select2">
+                        <select name="category" id="category" class="form-control select2" style="width: 100%;">
                             <option value="">--{{ __('Pilih') }}--</option>
                             @foreach ($categories as $category)
                                 <option {{ $category->id === $news->category_id ? 'selected' : '' }}
