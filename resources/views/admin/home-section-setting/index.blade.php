@@ -31,6 +31,7 @@
                             $categories = \App\Models\Category::where('language', $language->lang)
                                 ->orderByDesc('id')
                                 ->get();
+                            $homeSectionSetting = \App\Models\HomeSectionSetting::where('language', $language->lang)->first();
                         @endphp
                         <div class="tab-pane fade show {{ $loop->index === 0 ? 'active' : '' }}"
                             id="home-{{ $language->lang }}" role="tabpanel" aria-labelledby="home-tab2">
@@ -45,7 +46,9 @@
                                             style="width: 100%;">
                                             <option value="">--{{ __('Select') }}--</option>
                                             @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                <option
+                                                    {{ $homeSectionSetting->category_section_one == $category->id ? 'selected' : '' }}
+                                                    value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -56,7 +59,9 @@
                                             style="width: 100%;">
                                             <option value="">--{{ __('Select') }}--</option>
                                             @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                <option
+                                                    {{ $homeSectionSetting->category_section_two == $category->id ? 'selected' : '' }}
+                                                    value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -67,7 +72,9 @@
                                             style="width: 100%;">
                                             <option value="">--{{ __('Select') }}--</option>
                                             @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                <option
+                                                    {{ $homeSectionSetting->category_section_three == $category->id ? 'selected' : '' }}
+                                                    value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -78,7 +85,9 @@
                                             style="width: 100%;">
                                             <option value="">--{{ __('Select') }}--</option>
                                             @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                                <option
+                                                    {{ $homeSectionSetting->category_section_four == $category->id ? 'selected' : '' }}
+                                                    value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>

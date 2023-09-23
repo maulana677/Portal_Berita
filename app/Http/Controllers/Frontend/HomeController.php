@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Comment;
+use App\Models\HomeSectionSetting;
 use App\Models\News;
 use App\Models\Tag;
 use Illuminate\Http\Request;
@@ -38,7 +39,21 @@ class HomeController extends Controller
             ->orderBy('updated_at', 'DESC')->take(4)
             ->get();
 
-        return view('frontend.home', compact('breakingNews', 'heroSlider', 'recentNews', 'popularNews'));
+        $HomeSectionSetting = HomeSectionSetting::where('language', getLanguage())->first();
+        $categorySectionOne = News::where('category_id', $HomeSectionSetting->category_section_one)
+            ->activeEntries()
+            ->withLocalize()
+            ->orderBy('id', 'DESC')
+            ->take(8)
+            ->get();
+
+        return view('frontend.home', compact(
+            'breakingNews',
+            'heroSlider',
+            'recentNews',
+            'popularNews',
+            'categorySectionOne'
+        ));
     }
 
     public function ShowNews(string $slug)
