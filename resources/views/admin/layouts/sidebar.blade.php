@@ -33,6 +33,9 @@
                 </ul>
             </li>
 
+            <li><a class="nav-link" href="{{ route('admin.social-count.index') }}"><i class="far fa-square"></i>
+                    <span>Media Sosial</span></a></li>
+
             <li><a class="nav-link" href="{{ route('admin.home-section-setting.index') }}"><i class="far fa-square"></i>
                     <span>Pengaturan Rumah</span></a></li>
 
