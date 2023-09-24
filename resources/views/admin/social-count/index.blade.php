@@ -7,7 +7,7 @@
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('All Social Count') }}</h4>
+                <h4>{{ __('All Social Counts') }}</h4>
                 <div class="card-header-action">
                     <a href="{{ route('admin.social-count.create') }}" class="btn btn-primary">
                         <i class="fas fa-plus"></i> {{ __('Tambah') }}
@@ -28,9 +28,7 @@
                 <div class="tab-content tab-bordered" id="myTab3Content">
                     @foreach ($languages as $language)
                         @php
-                            $categories = \App\Models\Category::where('language', $language->lang)
-                                ->orderByDesc('id')
-                                ->get();
+                            $socialCounts = \App\Models\SocialCount::where('language', $language->lang)->get();
                         @endphp
                         <div class="tab-pane fade show {{ $loop->index === 0 ? 'active' : '' }}"
                             id="home-{{ $language->lang }}" role="tabpanel" aria-labelledby="home-tab2">
@@ -42,38 +40,33 @@
                                                 <th class="text-center">
                                                     #
                                                 </th>
-                                                <th>{{ __('Bahasa') }}</th>
-                                                <th>{{ __('Kode Bahasa') }}</th>
-                                                <th>{{ __('In Nav') }}</th>
+                                                <th>{{ __('Icon') }}</th>
+                                                <th>{{ __('Link') }}</th>
                                                 <th>{{ __('Status') }}</th>
+                                                <th>{{ __('Language') }}</th>
                                                 <th>{{ __('Action') }}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($categories as $category)
+                                            @foreach ($socialCounts as $socialCount)
                                                 <tr>
-                                                    <td>{{ $category->id }}</td>
-                                                    <td>{{ $category->name }}</td>
-                                                    <td>{{ $category->language }}</td>
-                                                    <td>
-                                                        @if ($category->show_at_nav == 1)
-                                                            <span class="badge badge-primary">{{ __('Ya') }}</span>
-                                                        @else
-                                                            <span class="badge badge-danger">{{ __('Tidak') }}</span>
-                                                        @endif
+                                                    <td>{{ $socialCount->id }}</td>
+                                                    <td><i style="font-size: 20px;" class="{{ $socialCount->icon }}"></i>
                                                     </td>
+                                                    <td>"{{ $socialCount->url }}"</td>
                                                     <td>
-                                                        @if ($category->status == 1)
+                                                        @if ($socialCount->status == 1)
                                                             <span class="badge badge-success">{{ __('Ya') }}</span>
                                                         @else
                                                             <span class="badge badge-danger">{{ __('Tidak') }}</span>
                                                         @endif
                                                     </td>
+                                                    <td>{{ $socialCount->language }}</td>
 
                                                     <td>
-                                                        <a href="{{ route('admin.kategori.edit', $category->id) }}"
+                                                        <a href="{{ route('admin.kategori.edit', $socialCount->id) }}"
                                                             class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                                        <a href="{{ route('admin.kategori.destroy', $category->id) }}"
+                                                        <a href="{{ route('admin.kategori.destroy', $socialCount->id) }}"
                                                             class="btn btn-danger delete-item"><i
                                                                 class="fas fa-trash-alt"></i></a>
                                                     </td>
