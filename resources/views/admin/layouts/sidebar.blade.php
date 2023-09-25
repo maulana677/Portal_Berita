@@ -21,13 +21,13 @@
             <li class="menu-header">Starter</li>
 
             <li><a class="nav-link" href="{{ route('admin.kategori.index') }}"><i class="far fa-square"></i>
-                    <span>Kategori</span></a></li>
+                    <span>Category</span></a></li>
 
             <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
-                    <span>Berita</span></a>
+                    <span>News</span></a>
                 <ul class="dropdown-menu">
-                    <li><a class="nav-link" href="{{ route('admin.berita.index') }}">Semua Berita</a></li>
+                    <li><a class="nav-link" href="{{ route('admin.berita.index') }}">All News</a></li>
                     <li><a class="nav-link" href="forms-editor.html">Editor</a></li>
                     <li><a class="nav-link" href="forms-validation.html">Validation</a></li>
                 </ul>
@@ -37,10 +37,10 @@
                     <span>Social Count</span></a></li>
 
             <li><a class="nav-link" href="{{ route('admin.home-section-setting.index') }}"><i class="far fa-square"></i>
-                    <span>Pengaturan Rumah</span></a></li>
+                    <span>Home Section Setting</span></a></li>
 
             <li><a class="nav-link" href="{{ route('admin.bahasa.index') }}"><i class="far fa-square"></i>
-                    <span>Bahasa</span></a></li>
+                    <span>Languages</span></a></li>
             {{--  <li><a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Blank Page</span></a></li>  --}}
 
             {{--  <li class="dropdown">

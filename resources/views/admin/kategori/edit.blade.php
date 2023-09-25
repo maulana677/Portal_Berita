@@ -3,18 +3,18 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>{{ __('Kategori') }}</h1>
+            <h1>{{ __('Categories') }}</h1>
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('Edit Kategori') }}</h4>
+                <h4>{{ __('Update Categories') }}</h4>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.kategori.update', $kategori->id) }}" method="POST">
                     @csrf
                     @method('put')
                     <div class="form-group">
-                        <label for="">{{ __('Bahasa') }}</label>
+                        <label for="">{{ __('Language') }}</label>
                         <select name="language" id="language-select" class="form-control select2" style="width: 100%;">
                             <option value="">--{{ __('Pilih') }}--</option>
                             @foreach ($languages as $lang)

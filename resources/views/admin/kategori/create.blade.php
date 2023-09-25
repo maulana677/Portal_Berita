@@ -3,17 +3,17 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>{{ __('Kategori') }}</h1>
+            <h1>{{ __('Categories') }}</h1>
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('Tambah Kategori') }}</h4>
+                <h4>{{ __('Create Categories') }}</h4>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.kategori.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="">{{ __('Bahasa') }}</label>
+                        <label for="">{{ __('Language') }}</label>
                         <select name="language" id="language-select" class="form-control select2" style="width: 100%;">
                             <option value="">--{{ __('Pilih') }}--</option>
                             @foreach ($bahasa as $lang)
@@ -51,7 +51,7 @@
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary">{{ __('Tambah') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ __('Create') }}</button>
                 </form>
             </div>
         </div>

@@ -3,14 +3,14 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>{{ __('Kategori') }}</h1>
+            <h1>{{ __('Categories') }}</h1>
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('Semua Kategori') }}</h4>
+                <h4>{{ __('All Categories') }}</h4>
                 <div class="card-header-action">
                     <a href="{{ route('admin.kategori.create') }}" class="btn btn-primary">
-                        <i class="fas fa-plus"></i> {{ __('Tambah') }}
+                        <i class="fas fa-plus"></i> {{ __('Create New') }}
                     </a>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                                                 <th class="text-center">
                                                     #
                                                 </th>
-                                                <th>{{ __('Bahasa') }}</th>
+                                                <th>{{ __('Language') }}</th>
                                                 <th>{{ __('Kode Bahasa') }}</th>
                                                 <th>{{ __('In Nav') }}</th>
                                                 <th>{{ __('Status') }}</th>
@@ -64,9 +64,9 @@
                                                     </td>
                                                     <td>
                                                         @if ($category->status == 1)
-                                                            <span class="badge badge-success">{{ __('Ya') }}</span>
+                                                            <span class="badge badge-success">{{ __('Aktif') }}</span>
                                                         @else
-                                                            <span class="badge badge-danger">{{ __('Tidak') }}</span>
+                                                            <span class="badge badge-danger">{{ __('Nonaktif') }}</span>
                                                         @endif
                                                     </td>
 
