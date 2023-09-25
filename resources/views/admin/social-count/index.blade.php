@@ -56,17 +56,17 @@
                                                     <td>"{{ $socialCount->url }}"</td>
                                                     <td>
                                                         @if ($socialCount->status == 1)
-                                                            <span class="badge badge-success">{{ __('Ya') }}</span>
+                                                            <span class="badge badge-success">{{ __('Aktif') }}</span>
                                                         @else
-                                                            <span class="badge badge-danger">{{ __('Tidak') }}</span>
+                                                            <span class="badge badge-danger">{{ __('Tidak Aktif') }}</span>
                                                         @endif
                                                     </td>
                                                     <td>{{ $socialCount->language }}</td>
 
                                                     <td>
-                                                        <a href="{{ route('admin.kategori.edit', $socialCount->id) }}"
+                                                        <a href="{{ route('admin.social-count.edit', $socialCount->id) }}"
                                                             class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                                        <a href="{{ route('admin.kategori.destroy', $socialCount->id) }}"
+                                                        <a href="{{ route('admin.social-count.destroy', $socialCount->id) }}"
                                                             class="btn btn-danger delete-item"><i
                                                                 class="fas fa-trash-alt"></i></a>
                                                     </td>
