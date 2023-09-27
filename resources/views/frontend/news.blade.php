@@ -104,7 +104,58 @@
                         </div>
 
                     </aside>
+                    <div class="text-center" style="display: flex; 
+                    justify-content: center;">
+                        <style type="text/css">
+                            .pagination {
+                                display: flex;
+                            }
 
+                            .pagination .disabled>span {
+                                color: black;
+                                float: left;
+                                text-decoration: none;
+                                transition: background-color 0.3s;
+                                border: 1px solid #eee;
+                                border-top-color: rgb(238, 238, 238);
+                                border-right-color: rgb(238, 238, 238);
+                                border-bottom-color: rgb(238, 238, 238);
+                                border-left-color: rgb(238, 238, 238);
+                                margin: 0 4px;
+                                border-radius: 50%;
+                                width: 35px;
+                                height: 35px;
+                                padding: 0;
+                                line-height: 34px;
+                                text-align: center;
+                            }
+
+                            .pagination .page-item>span {
+                                color: black;
+                                float: left;
+                                text-decoration: none;
+                                transition: background-color 0.3s;
+                                border: 1px solid #eee;
+                                border-top-color: rgb(238, 238, 238);
+                                border-right-color: rgb(238, 238, 238);
+                                border-bottom-color: rgb(238, 238, 238);
+                                border-left-color: rgb(238, 238, 238);
+                                margin: 0 4px;
+                                border-radius: 50%;
+                                width: 35px;
+                                height: 35px;
+                                padding: 0;
+                                line-height: 34px;
+                                text-align: center;
+                            }
+
+                            .pagination .page-item>a {
+                                text-align: center;
+                            }
+                        </style>
+                        <!-- Pagination -->
+                        {{ $news->appends(request()->query())->links() }}
+                    </div>
                 </div>
                 <div class="col-md-4">
                     <div class="sidebar-sticky">
@@ -384,34 +435,7 @@
 
                 <div class="clearfix"></div>
             </div>
-            <!-- Pagination -->
-            <div class="pagination-area">
-                <div class="pagination wow fadeIn animated" data-wow-duration="2s" data-wow-delay="0.5s"
-                    style="visibility: visible; animation-duration: 2s; animation-delay: 0.5s; animation-name: fadeIn;">
-                    <a href="#">
-                        «
-                    </a>
-                    <a href="#">
-                        1
-                    </a>
-                    <a class="active" href="#">
-                        2
-                    </a>
-                    <a href="#">
-                        3
-                    </a>
-                    <a href="#">
-                        4
-                    </a>
-                    <a href="#">
-                        5
-                    </a>
 
-                    <a href="#">
-                        »
-                    </a>
-                </div>
-            </div>
         </div>
         <div class="large_add_banner mb-4">
             <div class="container">
