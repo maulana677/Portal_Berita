@@ -139,10 +139,17 @@ class HomeController extends Controller
                     ->orWhere('content', 'like', '%' . $request->search . '%');
             })->orWhereHas('category', function ($query) use ($request) {
                 $query->where('name', 'like', '%' . $request->search . '%');
-            })->activeEntries()->withLocalize()->paginate(1);
+            })->activeEntries()->withLocalize()->paginate(20);
         }
 
-        return view('frontend.news', compact('news'));
+        $recentNews = News::with(['category', 'auther'])
+            ->activeEntries()
+            ->withLocalize()
+            ->orderBy('id', 'DESC')->take(4)->get();
+
+        $mostCommonTags = $this->mostCommonTags();
+
+        return view('frontend.news', compact('news', 'recentNews', 'mostCommonTags'));
     }
 
     public function countView($news)
