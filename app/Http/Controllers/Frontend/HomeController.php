@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Comment;
 use App\Models\HomeSectionSetting;
 use App\Models\News;
@@ -133,14 +134,24 @@ class HomeController extends Controller
 
     public function news(Request $request)
     {
-        if ($request->has('search')) {
-            $news = News::where(function ($query) use ($request) {
+        $news = News::query();
+
+        $news->when($request->has('search'), function ($query) use ($request) {
+            $query->where(function ($query) use ($request) {
                 $query->where('title', 'like', '%' . $request->search . '%')
                     ->orWhere('content', 'like', '%' . $request->search . '%');
             })->orWhereHas('category', function ($query) use ($request) {
                 $query->where('name', 'like', '%' . $request->search . '%');
-            })->activeEntries()->withLocalize()->paginate(20);
-        }
+            });
+        });
+
+        $news->when($request->has('category'), function ($query) use ($request) {
+            $query->whereHas('category', function ($query) use ($request) {
+                $query->where('slug', $request->category);
+            });
+        });
+
+        $news = $news->activeEntries()->withLocalize()->paginate(20);
 
         $recentNews = News::with(['category', 'auther'])
             ->activeEntries()
@@ -149,7 +160,9 @@ class HomeController extends Controller
 
         $mostCommonTags = $this->mostCommonTags();
 
-        return view('frontend.news', compact('news', 'recentNews', 'mostCommonTags'));
+        $categories = Category::where(['status' => 1, 'language' => getLanguage()])->get();
+
+        return view('frontend.news', compact('news', 'recentNews', 'mostCommonTags', 'categories'));
     }
 
     public function countView($news)
