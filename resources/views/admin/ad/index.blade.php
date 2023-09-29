@@ -24,7 +24,8 @@
                         @enderror
 
                         <label for="" class="mt-3">{{ __('Top Bar Ad Url') }}</label>
-                        <input name="home_top_bar_ad_url" type="text" class="form-control">
+                        <input name="home_top_bar_ad_url" value="{{ $ad->home_top_bar_ad_url }}" type="text"
+                            class="form-control">
                         @error('home_top_bar_ad_url')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
@@ -46,7 +47,8 @@
                         @enderror
 
                         <label for="" class="mt-3">{{ __('Middle Ad Url') }}</label>
-                        <input name="home_middle_ad_url" type="text" class="form-control">
+                        <input name="home_middle_ad_url" value="{{ $ad->home_middle_ad_url }}" type="text"
+                            class="form-control">
                         @error('home_middle_ad_url')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
@@ -70,7 +72,8 @@
                         @enderror
 
                         <label for="" class="mt-3">{{ __('Bottom Ad Url') }}</label>
-                        <input name="view_page_ad_url" type="text" class="form-control">
+                        <input name="view_page_ad_url" value="{{ $ad->view_page_ad_url }}" type="text"
+                            class="form-control">
                         @error('view_page_ad_url')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
@@ -94,7 +97,8 @@
                         @enderror
 
                         <label for="" class="mt-3">{{ __('Bottom Ad Url') }}</label>
-                        <input name="news_page_ad_url" type="text" class="form-control">
+                        <input name="news_page_ad_url" value="{{ $ad->news_page_ad_url }}" type="text"
+                            class="form-control">
                         @error('news_page_ad_url')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
@@ -118,7 +122,8 @@
                         @enderror
 
                         <label for="" class="mt-3">{{ __('Sidebar Ad Url') }}</label>
-                        <input name="side_bar_ad_url" type="text" class="form-control">
+                        <input name="side_bar_ad_url" value="{{ $ad->side_bar_ad_url }}" type="text"
+                            class="form-control">
                         @error('side_bar_ad_url')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
