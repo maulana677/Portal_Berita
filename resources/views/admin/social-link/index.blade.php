@@ -22,12 +22,34 @@
                                 <th class="text-center">
                                     #
                                 </th>
-                                <th>{{ __('Email') }}</th>
+                                <th>{{ __('Icon') }}</th>
+                                <th>{{ __('Url') }}</th>
+                                <th>{{ __('Status') }}</th>
                                 <th>{{ __('Action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
-
+                            @foreach ($socialLinks as $link)
+                                <tr>
+                                    <td>{{ ++$loop->index }}</td>
+                                    <td><i style="font-size:30px" class="{{ $link->icon }}"></i></td>
+                                    <td>{{ $link->url }}</td>
+                                    <td>
+                                        @if ($link->status === 1)
+                                            <span class="badge badge-success">{{ __('Aktif') }}</span>
+                                        @else
+                                            <span class="badge badge-danger">{{ __('Tidak Aktif') }}</span>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('admin.social-link.edit', $link->id) }}"
+                                            class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('admin.social-link.destroy', $link->id) }}"
+                                            class="btn btn-danger delete-item"><i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
 
                         </tbody>
                     </table>

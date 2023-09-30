@@ -68,7 +68,8 @@
                                                             class="btn btn-primary"><i class="fas fa-edit"></i></a>
                                                         <a href="{{ route('admin.social-count.destroy', $socialCount->id) }}"
                                                             class="btn btn-danger delete-item"><i
-                                                                class="fas fa-trash-alt"></i></a>
+                                                                class="fas fa-trash-alt"></i>
+                                                        </a>
                                                     </td>
                                                 </tr>
                                             @endforeach
