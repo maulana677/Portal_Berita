@@ -7,6 +7,35 @@
         </div>
         <div class="card card-primary">
             <div class="card-header">
+                <h4>{{ __('Send Mail To Subscribers') }}</h4>
+            </div>
+            <div class="card-body">
+                <form action="{{ route('admin.subscribers.store') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="">{{ __('Subject') }}</label>
+                        <input type="text" class="form-control" name="subject">
+                        @error('subject')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="form-group">
+                        <label for="">{{ __('Message') }}</label>
+                        <textarea name="message" class="summernote" id="" cols="30" rows="10"></textarea>
+                        @error('message')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <button type="submit" class="btn btn-primary">{{ __('Send') }}</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="card card-primary">
+            <div class="card-header">
                 <h4>{{ __('All Subscribers') }}</h4>
                 <div class="card-header-action">
                     <a href="{{ route('admin.kategori.create') }}" class="btn btn-primary">
