@@ -3,11 +3,11 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>{{ __('Pengaturan Rumah') }}</h1>
+            <h1>{{ __('Home Section Setting') }}</h1>
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('Semua Pengaturan Rumah') }}</h4>
+                <h4>{{ __('Home Section Setting') }}</h4>
                 <div class="card-header-action">
                     <a href="{{ route('admin.kategori.create') }}" class="btn btn-primary">
                         <i class="fas fa-plus"></i> {{ __('Create New') }}

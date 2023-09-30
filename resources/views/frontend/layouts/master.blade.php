@@ -90,7 +90,16 @@
                         $('.newsletter-button').attr('disabled', true);
                     },
                     success: function(data) {
+                        if (data.status == 'success') {
+                            Toast.fire({
+                                icon: 'success',
+                                title: data.message
+                            })
+                            $('.newsletter-form')[0].reset();
+                            $('.newsletter-button').text('sign up');
 
+                            $('.newsletter-button').attr('disabled', false);
+                        }
                     },
                     error: function(data) {
                         $('.newsletter-button').text('sign up');
