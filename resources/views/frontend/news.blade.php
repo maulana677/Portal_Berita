@@ -271,15 +271,19 @@
                             <!-- Form Subscribe -->
                             <div class="widget__form-subscribe bg__card-shadow">
                                 <h6>
-                                    {{ __('The most important world news and events of the day') }}.
+                                    {{ __('The most important world news and events of the day.') }}
                                 </h6>
                                 <p><small>{{ __('Get magzrenvi daily newsletter on your inbox') }}.</small></p>
-                                <div class="input-group ">
-                                    <input type="text" class="form-control" placeholder="Your email address">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-primary" type="button">{{ __('sign up') }}</button>
+                                <form action="" class="newsletter-form" method="">
+                                    <div class="input-group ">
+                                        <input type="text" class="form-control" name="email"
+                                            placeholder="Your email address">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary newsletter-button"
+                                                type="submit">{{ __('sign up') }}</button>
+                                        </div>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </aside>
 
