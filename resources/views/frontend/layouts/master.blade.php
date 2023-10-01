@@ -21,8 +21,10 @@
 
 <body>
 
+    <!-- Global Variabels -->
     @php
         $socialLink = \App\Models\SocialLink::where('status', 1)->get();
+        $footerInfo = \App\Models\FooterInfo::where('language', getLanguage())->first();
     @endphp
 
     <!-- Header news -->
