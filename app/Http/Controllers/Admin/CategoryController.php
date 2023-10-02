@@ -42,7 +42,7 @@ class CategoryController extends Controller
         $kategori->status = $request->status;
         $kategori->save();
 
-        toast( __('Data berhasil di simpan'),'success')->width('350');
+        toast(__('Created Successfully!'), 'success')->width('350');
 
         return redirect()->route('admin.kategori.index');
     }
@@ -78,7 +78,7 @@ class CategoryController extends Controller
         $kategori->status = $request->status;
         $kategori->save();
 
-        toast( __('Data berhasil diperbarui'),'success')->width('350');
+        toast(__('Updated Successfully'), 'success')->width('350');
 
         return redirect()->route('admin.kategori.index');
     }
