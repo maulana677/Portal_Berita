@@ -22,7 +22,7 @@
                 <div class="tab-content tab-bordered" id="myTab3Content">
                     @foreach ($languages as $language)
                         @php
-                            $footer = \App\Models\FooterGridOne::where('language', $language->lang)->get();
+                            $footerTitle = \App\Models\FooterTitle::where(['language' => $language->lang, 'key' => 'grid_one_title'])->first();
                         @endphp
                         <div class="tab-pane fade show {{ $loop->index === 0 ? 'active' : '' }}"
                             id="home-{{ $language->lang }}" role="tabpanel" aria-labelledby="home-tab2">
@@ -31,7 +31,8 @@
                                     @csrf
                                     <div class="form-group">
                                         <label for="">{{ __('Footer Title') }}</label>
-                                        <input type="text" class="form-control" name="title">
+                                        <input type="text" class="form-control" name="title"
+                                            value="{{ $footerTitle->value }}">
                                         <input type="hidden" value="{{ $language->lang }}" class="form-control"
                                             name="language">
                                         @error('title')
