@@ -73,8 +73,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
     Route::resource('footer-grid-one', FooterGridOneController::class);
 
     // route Footer Grid Two
+    Route::post('footer-grid-two-title', [FooterGridTwoController::class, 'handleTitle'])->name('footer-grid-two-title');
     Route::resource('footer-grid-two', FooterGridTwoController::class);
 
     // route Footer Grid Three
+    Route::post('footer-grid-three-title', [FooterGridThreeController::class, 'handleTitle'])->name('footer-grid-three-title');
     Route::resource('footer-grid-three', FooterGridThreeController::class);
 });
