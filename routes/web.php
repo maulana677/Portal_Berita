@@ -46,3 +46,6 @@ Route::delete('news-comment-destroy', [HomeController::class, 'commentDestroy'])
 
 /** Route Surat Berita */
 Route::post('subscribe-newsletter', [HomeController::class, 'SubscribeNewsLetter'])->name('subscribe-newsletter');
+
+/** Route Tentang Kami */
+Route::get('about', [HomeController::class, 'about'])->name('about');

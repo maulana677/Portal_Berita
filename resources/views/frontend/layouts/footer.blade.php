@@ -78,7 +78,7 @@
                             <div class="widget__footer">
                                 <div class="dropdown-footer">
                                     <h4 class="footer-title">
-                                        {{ $footerGridThreeTitle->value }}
+                                        {{ @$footerGridThreeTitle->value }}
                                         <span class="fa fa-angle-down"></span>
                                     </h4>
 
