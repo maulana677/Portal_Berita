@@ -10,7 +10,7 @@
                 <h4>{{ __('All Social Counts') }}</h4>
                 <div class="card-header-action">
                     <a href="{{ route('admin.social-count.create') }}" class="btn btn-primary">
-                        <i class="fas fa-plus"></i> {{ __('Tambah') }}
+                        <i class="fas fa-plus"></i> {{ __('Create New') }}
                     </a>
                 </div>
             </div>

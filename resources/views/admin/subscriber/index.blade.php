@@ -38,7 +38,7 @@
             <div class="card-header">
                 <h4>{{ __('All Subscribers') }}</h4>
                 <div class="card-header-action">
-                    <a href="{{ route('admin.kategori.create') }}" class="btn btn-primary">
+                    <a href="{{ route('admin.category.create') }}" class="btn btn-primary">
                         <i class="fas fa-plus"></i> {{ __('Create New') }}
                     </a>
                 </div>

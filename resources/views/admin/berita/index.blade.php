@@ -3,14 +3,14 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>{{ __('Berita') }}</h1>
+            <h1>{{ __('News') }}</h1>
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('Semua Berita') }}</h4>
+                <h4>{{ __('All News') }}</h4>
                 <div class="card-header-action">
                     <a href="{{ route('admin.berita.create') }}" class="btn btn-primary">
-                        <i class="fas fa-plus"></i> {{ __('Tambah') }}
+                        <i class="fas fa-plus"></i> {{ __('Create New') }}
                     </a>
                 </div>
             </div>

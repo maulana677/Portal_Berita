@@ -3,11 +3,11 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>{{ __('Berita') }}</h1>
+            <h1>{{ __('News') }}</h1>
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('Tambah Berita') }}</h4>
+                <h4>{{ __('Create News') }}</h4>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.berita.store') }}" method="POST" enctype="multipart/form-data">

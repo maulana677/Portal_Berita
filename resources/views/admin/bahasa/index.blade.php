@@ -3,11 +3,11 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>{{ __('Bahasa') }}</h1>
+            <h1>{{ __('Language') }}</h1>
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('Semua Bahasa') }}</h4>
+                <h4>{{ __('All Languages') }}</h4>
                 <div class="card-header-action">
                     <a href="{{ route('admin.bahasa.create') }}" class="btn btn-primary">
                         <i class="fas fa-plus"></i> {{ __('Create New') }}

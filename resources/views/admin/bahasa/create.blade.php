@@ -3,11 +3,11 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>{{ __('Bahasa') }}</h1>
+            <h1>{{ __('Language') }}</h1>
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('Tambah Bahasa') }}</h4>
+                <h4>{{ __('Create Languages') }}</h4>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.bahasa.store') }}" method="POST">
