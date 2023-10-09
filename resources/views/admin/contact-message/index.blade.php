@@ -21,6 +21,7 @@
                                 <th>{{ __('Email') }}</th>
                                 <th>{{ __('Subject') }}</th>
                                 <th>{{ __('Message') }}</th>
+                                <th>{{ __('Replied') }}</th>
                                 <th>{{ __('Action') }}</th>
                             </tr>
                         </thead>
@@ -31,6 +32,13 @@
                                     <td>{{ $message->email }}</td>
                                     <td>{{ $message->subject }}</td>
                                     <td>{{ $message->message }}</td>
+                                    <td>
+                                        @if ($message->replied == 1)
+                                            <i style="font-size:20px" class="fas fa-check text-success"></i>
+                                        @else
+                                            <i style="font-size:20px" class="fas fa-clock text-warning"></i>
+                                        @endif
+                                    </td>
                                     {{--  <td>
                                         @if ($link->status === 1)
                                             <span class="badge badge-success">{{ __('Aktif') }}</span>
@@ -42,7 +50,7 @@
                                         <a href="" class="btn btn-primary" data-toggle="modal"
                                             data-target="#exampleModal-{{ $message->id }}"><i class="fas fa-envelope"></i>
                                         </a>
-                                        <a href="{{ route('admin.social-link.destroy', $message->id) }}"
+                                        <a href="{{ route('admin.contact-message-destroy', $message->id) }}"
                                             class="btn btn-danger delete-item"><i class="fas fa-trash-alt"></i>
                                         </a>
                                     </td>
@@ -76,6 +84,8 @@
                                 <label for="">{{ __('Subject') }}</label>
                                 <input type="text" name="subject" id="" class="form-control">
                                 <input type="hidden" name="email" value="{{ $message->email }}" id=""
+                                    class="form-control">
+                                <input type="hidden" name="message_id" value="{{ $message->id }}" id=""
                                     class="form-control">
                                 @error('subject')
                                     <p class="text-danger">{{ $message }}</p>

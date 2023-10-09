@@ -32,6 +32,10 @@ class ContactMessageController extends Controller
             /** kirim ke email */
             Mail::to($request->email)->send(new ContactMail($request->subject, $request->message, $contact->email));
 
+            $makeReplied = RecivedMail::find($request->message_id);
+            $makeReplied->replied = 1;
+            $makeReplied->save();
+
             toast(__('Mail Sent Successfully!'), 'success');
 
             return redirect()->back();
@@ -40,5 +44,12 @@ class ContactMessageController extends Controller
 
             return redirect()->back();
         }
+    }
+
+    public function destroy($id)
+    {
+        RecivedMail::findOrFail($id)->delete();
+
+        return response(['status' => 'success', 'message' => __('Deleted Successfully!')]);
     }
 }
