@@ -10,7 +10,7 @@
                 <h4>{{ __('Create Categories') }}</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.kategori.store') }}" method="POST">
+                <form action="{{ route('admin.category.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="">{{ __('Language') }}</label>

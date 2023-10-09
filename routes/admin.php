@@ -44,7 +44,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
     Route::resource('bahasa', LanguageController::class);
 
     // route kategori
-    Route::resource('kategori', CategoryController::class);
+    Route::resource('category', CategoryController::class);
 
     // route Berita
     Route::get('fetch-berita-category', [NewsController::class, 'fetchCategory'])->name('fetch-berita-category');

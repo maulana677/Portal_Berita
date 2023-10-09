@@ -9,7 +9,7 @@
             <div class="card-header">
                 <h4>{{ __('All Categories') }}</h4>
                 <div class="card-header-action">
-                    <a href="{{ route('admin.kategori.create') }}" class="btn btn-primary">
+                    <a href="{{ route('admin.category.create') }}" class="btn btn-primary">
                         <i class="fas fa-plus"></i> {{ __('Create New') }}
                     </a>
                 </div>
@@ -71,9 +71,9 @@
                                                     </td>
 
                                                     <td>
-                                                        <a href="{{ route('admin.kategori.edit', $category->id) }}"
+                                                        <a href="{{ route('admin.category.edit', $category->id) }}"
                                                             class="btn btn-primary"><i class="fas fa-edit"></i></a>
-                                                        <a href="{{ route('admin.kategori.destroy', $category->id) }}"
+                                                        <a href="{{ route('admin.category.destroy', $category->id) }}"
                                                             class="btn btn-danger delete-item"><i
                                                                 class="fas fa-trash-alt"></i></a>
                                                     </td>

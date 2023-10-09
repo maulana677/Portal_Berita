@@ -10,7 +10,7 @@
                 <h4>{{ __('Update Categories') }}</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.kategori.update', $kategori->id) }}" method="POST">
+                <form action="{{ route('admin.category.update', $kategori->id) }}" method="POST">
                     @csrf
                     @method('put')
                     <div class="form-group">
