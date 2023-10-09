@@ -93,4 +93,5 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
 
     // route pesan kontak
     Route::get('contact-message', [ContactMessageController::class, 'index'])->name('contact-message.index');
+    Route::post('contact-send-reply', [ContactMessageController::class, 'sendReply'])->name('contact-send-reply');
 });
