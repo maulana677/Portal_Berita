@@ -7,12 +7,8 @@
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('All Contact Message') }}</h4>
-                <div class="card-header-action">
-                    <a href="{{ route('admin.social-link.create') }}" class="btn btn-primary">
-                        <i class="fas fa-plus"></i> {{ __('Create New') }}
-                    </a>
-                </div>
+                <h4>{{ __('All Messages') }}</h4>
+
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -112,7 +108,10 @@
             "columnDefs": [{
                 "sortable": false,
                 "targets": [1]
-            }]
+            }],
+            "order": [
+                [0, "desc"]
+            ]
         });
     </script>
 @endpush
