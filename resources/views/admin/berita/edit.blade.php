@@ -7,7 +7,7 @@
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('Edit News') }}</h4>
+                <h4>{{ __('Update News') }}</h4>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.berita.update', $news->id) }}" method="POST" enctype="multipart/form-data">
@@ -132,7 +132,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">{{ __('Edit') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
                 </form>
             </div>
         </div>

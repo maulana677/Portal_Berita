@@ -120,7 +120,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">{{ __('Tambah') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ __('Create') }}</button>
                 </form>
             </div>
         </div>

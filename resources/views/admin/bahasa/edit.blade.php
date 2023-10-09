@@ -7,7 +7,7 @@
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('Edit Languages') }}</h4>
+                <h4>{{ __('Update Languages') }}</h4>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.bahasa.update', $bahasa->id) }}" method="POST">

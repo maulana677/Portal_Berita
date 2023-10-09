@@ -60,7 +60,7 @@
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary">{{ __('Ubah') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
                 </form>
             </div>
         </div>
