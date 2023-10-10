@@ -52,7 +52,7 @@
                                         <tbody>
                                             @foreach ($categories as $category)
                                                 <tr>
-                                                    <td>{{ $category->id }}</td>
+                                                    <td>{{ ++$loop->index }}</td>
                                                     <td>{{ $category->name }}</td>
                                                     <td>{{ $category->language }}</td>
                                                     <td>

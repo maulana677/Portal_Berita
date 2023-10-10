@@ -32,9 +32,7 @@
                         <tbody>
                             @foreach ($bahasa as $bahasa)
                                 <tr>
-                                    <td>
-                                        {{ $bahasa->id }}
-                                    </td>
+                                    <td>{{ ++$loop->index }}</td>
                                     <td>{{ $bahasa->name }}</td>
                                     <td>{{ $bahasa->lang }}</td>
                                     <td>

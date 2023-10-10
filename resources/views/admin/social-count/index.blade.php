@@ -50,7 +50,7 @@
                                         <tbody>
                                             @foreach ($socialCounts as $socialCount)
                                                 <tr>
-                                                    <td>{{ $socialCount->id }}</td>
+                                                    <td>{{ ++$loop->index }}</td>
                                                     <td><i style="font-size: 20px;" class="{{ $socialCount->icon }}"></i>
                                                     </td>
                                                     <td>"{{ $socialCount->url }}"</td>
