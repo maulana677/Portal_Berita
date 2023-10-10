@@ -99,4 +99,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
 
     // route untuk menu settings
     Route::get('setting', [SettingController::class, 'index'])->name('setting.index');
+    // route untuk menu settings
+    Route::put('general-setting', [SettingController::class, 'updateGeneralSetting'])->name('general-setting.update');
 });
