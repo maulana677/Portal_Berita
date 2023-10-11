@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AdminGeneralSettingUpdateRequest;
+use App\Http\Requests\AdminSeoSettingUpdateRequest;
 use App\Models\Setting;
 use App\Traits\FileUploadTrait;
 use Illuminate\Http\RedirectResponse;
@@ -47,8 +48,26 @@ class SettingController extends Controller
         return redirect()->back();
     }
 
-    function updateSeoSetting(Request $request): RedirectResponse
+    function updateSeoSetting(AdminSeoSettingUpdateRequest $request): RedirectResponse
     {
-        dd($request->all());
+        Setting::updateOrCreate(
+            ['key' => 'site_seo_title'],
+            ['value' => $request->site_seo_title]
+        );
+
+
+        Setting::updateOrCreate(
+            ['key' => 'site_seo_description'],
+            ['value' =>  $request->site_seo_description]
+        );
+
+        Setting::updateOrCreate(
+            ['key' => 'site_seo_keywords'],
+            ['value' => $request->site_seo_keywords]
+        );
+
+        toast(__('Updated Successfully!'), 'success');
+
+        return redirect()->back();
     }
 }
