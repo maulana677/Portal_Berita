@@ -19,11 +19,11 @@
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="profile-tab4" data-toggle="tab" href="#profile4" role="tab"
-                                    aria-controls="profile" aria-selected="false">{{ __('SEO Setting') }}</a>
+                                    aria-controls="profile" aria-selected="false">{{ __('SEO Settings') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="contact-tab4" data-toggle="tab" href="#contact4" role="tab"
-                                    aria-controls="contact" aria-selected="false">Contact</a>
+                                    aria-controls="contact" aria-selected="false">{{ __('Appearance Settings') }}</a>
                             </li>
                         </ul>
                     </div>
@@ -37,11 +37,7 @@
                                 @include('admin.setting.cards.seo-setting')
                             </div>
                             <div class="tab-pane fade" id="contact4" role="tabpanel" aria-labelledby="contact-tab4">
-                                Vestibulum imperdiet odio sed neque ultricies, ut dapibus mi maximus. Proin ligula massa,
-                                gravida in lacinia efficitur, hendrerit eget mauris. Pellentesque fermentum, sem interdum
-                                molestie finibus, nulla diam varius leo, nec varius lectus elit id dolor. Nam malesuada orci
-                                non ornare vulputate. Ut ut sollicitudin magna. Vestibulum eget ligula ut ipsum venenatis
-                                ultrices. Proin bibendum bibendum augue ut luctus.
+                                @include('admin.setting.cards.appearance-setting')
                             </div>
                         </div>
                     </div>
