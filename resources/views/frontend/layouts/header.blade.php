@@ -1,6 +1,6 @@
 @php
     $languages = \App\Models\Language::where('status', 1)->get();
-    
+
 @endphp
 
 <header class="bg-light">
@@ -58,9 +58,8 @@
                     </div>
                 </div>
                 <figure class="mb-0 mx-auto">
-                    <a href="index.html">
-                        <img src="{{ asset('frontend/assets/images/logo1.png') }}" alt=""
-                            class="img-fluid logo">
+                    <a href="{{ url('/') }}">
+                        <img src="{{ asset($settings['site_logo']) }}" alt="" class="img-fluid logo">
                     </a>
                 </figure>
 
