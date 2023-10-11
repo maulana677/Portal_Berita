@@ -46,4 +46,9 @@ class SettingController extends Controller
 
         return redirect()->back();
     }
+
+    function updateSeoSetting(Request $request): RedirectResponse
+    {
+        dd($request->all());
+    }
 }
