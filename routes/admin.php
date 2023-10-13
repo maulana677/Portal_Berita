@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\HomeSectionSettingController;
 use App\Http\Controllers\Admin\LanguageController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\RolePermisionController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SocialCountController;
 use App\Http\Controllers\Admin\SocialLinkController;
@@ -103,4 +104,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
     Route::put('general-setting', [SettingController::class, 'updateGeneralSetting'])->name('general-setting.update');
     Route::put('seo-setting', [SettingController::class, 'updateSeoSetting'])->name('seo-setting.update');
     Route::put('appearance-setting', [SettingController::class, 'updateAppearanceSetting'])->name('appearance-setting.update');
+
+    /** Role dan Permission route */
+    Route::get('role', [RolePermisionController::class, 'index'])->name('role.index');
 });
