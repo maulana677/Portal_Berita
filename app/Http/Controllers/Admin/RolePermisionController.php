@@ -11,4 +11,9 @@ class RolePermisionController extends Controller
     {
         return view('admin.role.index');
     }
+
+    function create()
+    {
+        return view('admin.role.create');
+    }
 }
