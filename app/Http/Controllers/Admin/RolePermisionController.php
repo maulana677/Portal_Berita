@@ -13,7 +13,8 @@ class RolePermisionController extends Controller
 {
     function index()
     {
-        return view('admin.role.index');
+        $roles = Role::all();
+        return view('admin.role.index', compact('roles'));
     }
 
     function create()
