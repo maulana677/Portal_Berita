@@ -24,13 +24,16 @@
                         <div class="form-group">
                             <h6>{{ $groupName }}</h6>
                             <div class="row">
-                                <div class="col-md-2">
-                                    <label class="custom-switch mt-2">
-                                        <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
-                                        <span class="custom-switch-indicator"></span>
-                                        <span class="custom-switch-description">Category Index</span>
-                                    </label>
-                                </div>
+                                @foreach ($permission as $item)
+                                    <div class="col-md-2">
+                                        <label class="custom-switch mt-2">
+                                            <input value="{{ $item->name }}" type="checkbox" name="permissions"
+                                                class="custom-switch-input">
+                                            <span class="custom-switch-indicator"></span>
+                                            <span class="custom-switch-description">{{ $item->name }}</span>
+                                        </label>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
                     @endforeach
