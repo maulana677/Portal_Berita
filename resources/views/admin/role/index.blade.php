@@ -9,7 +9,7 @@
             <div class="card-header">
                 <h4>{{ __('Roles and Permission') }}</h4>
                 <div class="card-header-action">
-                    <a href="{{ route('admin.role.create') }}" class="btn btn-primary">
+                    <a href="{{ route('admin.role.store') }}" class="btn btn-primary">
                         <i class="fas fa-plus"></i> {{ __('Create New') }}
                     </a>
                 </div>
@@ -38,8 +38,9 @@
                                         @endforeach
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.social-count.edit', $role->id) }}"
-                                            class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                        <a href="{{ route('admin.role.edit', $role->id) }}" class="btn btn-primary">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
                                         <a href="{{ route('admin.social-count.destroy', $role->id) }}"
                                             class="btn btn-danger delete-item"><i class="fas fa-trash-alt"></i>
                                         </a>
