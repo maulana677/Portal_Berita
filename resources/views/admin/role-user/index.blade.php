@@ -9,7 +9,7 @@
             <div class="card-header">
                 <h4>{{ __('All Role Users') }}</h4>
                 <div class="card-header-action">
-                    <a href="{{ route('admin.role.store') }}" class="btn btn-primary">
+                    <a href="{{ route('admin.role-users.create') }}" class="btn btn-primary">
                         <i class="fas fa-plus"></i> {{ __('Create New') }}
                     </a>
                 </div>
