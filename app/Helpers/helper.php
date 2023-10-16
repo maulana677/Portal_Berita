@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Language;
+use App\Models\Setting;
 use PhpParser\Node\Expr\Cast\String_;
 
 /** format tag berita */
@@ -61,4 +62,11 @@ function setSidebarActive(array $routes): ?string
         }
     }
     return '';
+}
+
+/** get setting */
+function getSetting($key)
+{
+    $data = Setting::where('key', $key)->first();
+    return $data->value;
 }
