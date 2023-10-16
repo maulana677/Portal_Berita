@@ -10,13 +10,21 @@
                 <h4>{{ __('Create Role') }}</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.role.store') }}" method="POST">
+                <form action="{{ route('admin.role-users.store') }}" method="POST">
                     @csrf
 
                     <div class="form-group">
                         <label for="">{{ __('User Name') }}</label>
                         <input type="text" class="form-control" name="name">
                         @error('name')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <div class="form-group">
+                        <label for="">{{ __('Email') }}</label>
+                        <input type="text" class="form-control" name="email">
+                        @error('email')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
@@ -38,7 +46,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="">{{ __('Confirm Password') }}</label>
+                        <label for="">{{ __('Role') }}</label>
                         <select name="role" id="" class="select2 form-control" style="width: 100%;">
                             <option value="">{{ __('--Select--') }}</option>
                             @foreach ($roles as $role)
