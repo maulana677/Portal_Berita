@@ -21,7 +21,7 @@ class AdminNewsUpdateRequest extends FormRequest
      */
     public function rules(): array
     {
-        $newsId = $this->route('news');
+        $newsId = $this->route('beritum');
         return [
             'language' => ['required'],
             'category' => ['required'],
