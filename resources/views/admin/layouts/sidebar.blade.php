@@ -124,7 +124,7 @@
                 </ul>
             </li>
 
-            <li class="dropdown {{ setSidebarActive(['admin.role.*']) }}">
+            <li class="dropdown {{ setSidebarActive(['admin.role.*', 'admin.role-users.*']) }}">
                 <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
                     <span>{{ __('Access Management') }}</span></a>
                 <ul class="dropdown-menu">
