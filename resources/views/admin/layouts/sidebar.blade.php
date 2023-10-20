@@ -20,11 +20,13 @@
             </li>
             <li class="menu-header">{{ __('Starter') }}</li>
 
-            <li class="{{ setSidebarActive(['admin.category.*']) }}">
-                <a class="nav-link" href="{{ route('admin.category.index') }}"><i class="far fa-square"></i>
-                    <span>{{ __('Category') }}</span>
-                </a>
-            </li>
+            @if (hasPermission(['category index', 'category create', 'category update', 'category delete']))
+                <li class="{{ setSidebarActive(['admin.category.*']) }}">
+                    <a class="nav-link" href="{{ route('admin.category.index') }}"><i class="far fa-square"></i>
+                        <span>{{ __('Category') }}</span>
+                    </a>
+                </li>
+            @endif
 
             <li class="dropdown {{ setSidebarActive(['admin.berita.*']) }}">
                 <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
