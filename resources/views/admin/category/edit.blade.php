@@ -10,7 +10,7 @@
                 <h4>{{ __('Update Categories') }}</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.category.update', $kategori->id) }}" method="POST">
+                <form action="{{ route('admin.category.update', $category->id) }}" method="POST">
                     @csrf
                     @method('put')
                     <div class="form-group">
@@ -18,7 +18,7 @@
                         <select name="language" id="language-select" class="form-control select2" style="width: 100%;">
                             <option value="">--{{ __('Pilih') }}--</option>
                             @foreach ($languages as $lang)
-                                <option {{ $lang->lang === $kategori->language ? 'selected' : '' }}
+                                <option {{ $lang->lang === $category->language ? 'selected' : '' }}
                                     value="{{ $lang->lang }}">
                                     {{ $lang->name }}
                                 </option>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group">
                         <label for="">{{ __('Name') }}</label>
-                        <input name="name" value="{{ $kategori->name }}" type="text" class="form-control"
+                        <input name="name" value="{{ $category->name }}" type="text" class="form-control"
                             id="name">
                         @error('name')
                             <p class="text-danger">{{ $message }}</p>
@@ -39,9 +39,9 @@
                     <div class="form-group">
                         <label for="">{{ __('Show at Nav') }} </label>
                         <select name="show_at_nav" id="" class="form-control">
-                            <option {{ $kategori->show_at_nav === 0 ? 'selected' : '' }} value="0">
+                            <option {{ $category->show_at_nav === 0 ? 'selected' : '' }} value="0">
                                 {{ __('Tidak') }}</option>
-                            <option {{ $kategori->show_at_nav === 1 ? 'selected' : '' }} value="1">
+                            <option {{ $category->show_at_nav === 1 ? 'selected' : '' }} value="1">
                                 {{ __('Ya') }}</option>
                         </select>
                         @error('default')
@@ -51,9 +51,9 @@
                     <div class="form-group">
                         <label for="">{{ __('Status') }}</label>
                         <select name="status" id="" class="form-control">
-                            <option {{ $kategori->status === 1 ? 'selected' : '' }} value="1">{{ __('Aktif') }}
+                            <option {{ $category->status === 1 ? 'selected' : '' }} value="1">{{ __('Aktif') }}
                             </option>
-                            <option {{ $kategori->status === 0 ? 'selected' : '' }} value="0">{{ __('Nonaktif') }}
+                            <option {{ $category->status === 0 ? 'selected' : '' }} value="0">{{ __('Nonaktif') }}
                             </option>
                         </select>
                         @error('status')
