@@ -3,11 +3,11 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>{{ __('Categories') }}</h1>
+            <h1>{{ __('Category') }}</h1>
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('Create Categories') }}</h4>
+                <h4>{{ __('Create Category') }}</h4>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.category.store') }}" method="POST">
