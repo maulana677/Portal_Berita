@@ -20,7 +20,7 @@
             </li>
             <li class="menu-header">{{ __('Starter') }}</li>
 
-            @if (hasPermission(['category index', 'category create', 'category update', 'category delete']))
+            @if (canAccess(['category index', 'category create', 'category update', 'category delete']))
                 <li class="{{ setSidebarActive(['admin.category.*']) }}">
                     <a class="nav-link" href="{{ route('admin.category.index') }}"><i class="far fa-square"></i>
                         <span>{{ __('Category') }}</span>
