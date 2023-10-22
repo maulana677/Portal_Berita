@@ -28,37 +28,49 @@
                 </li>
             @endif
 
-            <li class="dropdown {{ setSidebarActive(['admin.berita.*']) }}">
-                <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
-                    <span>{{ __('News') }}</span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li class="{{ setSidebarActive(['admin.berita.*']) }}">
-                        <a class="nav-link" href="{{ route('admin.berita.index') }}">{{ __('All News') }}</a>
-                    </li>
-                    <li><a class="nav-link" href="forms-editor.html">{{ __('Editor') }}</a></li>
-                </ul>
-            </li>
+            @if (canAccess(['news index']))
+                <li class="dropdown {{ setSidebarActive(['admin.berita.*']) }}">
+                    <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
+                        <span>{{ __('News') }}</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="{{ setSidebarActive(['admin.berita.*']) }}">
+                            <a class="nav-link" href="{{ route('admin.berita.index') }}">{{ __('All News') }}</a>
+                        </li>
+                        <li><a class="nav-link" href="forms-editor.html">{{ __('Editor') }}</a></li>
+                    </ul>
+                </li>
+            @endif
 
-            <li class="dropdown {{ setSidebarActive(['admin.about.*', 'admin.contact.*']) }}">
-                <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
-                    <span>{{ __('Pages') }}</span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li class="{{ setSidebarActive(['admin.about.*']) }}">
-                        <a class="nav-link" href="{{ route('admin.about.index') }}">{{ __('About Page') }}</a>
-                    </li>
-                    <li class="{{ setSidebarActive(['admin.contact.*']) }}">
-                        <a class="nav-link" href="{{ route('admin.contact.index') }}">{{ __('Contact Page') }}</a>
-                    </li>
-                </ul>
-            </li>
+            @if (canAccess(['about index', 'contact index']))
+                <li class="dropdown {{ setSidebarActive(['admin.about.*', 'admin.contact.*']) }}">
+                    <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
+                        <span>{{ __('Pages') }}</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        @if (canAccess(['about index']))
+                            <li class="{{ setSidebarActive(['admin.about.*']) }}">
+                                <a class="nav-link" href="{{ route('admin.about.index') }}">{{ __('About Page') }}</a>
+                            </li>
+                        @endif
 
-            <li class="{{ setSidebarActive(['admin.social-count.*']) }}">
-                <a class="nav-link" href="{{ route('admin.social-count.index') }}"><i class="far fa-square"></i>
-                    <span>{{ __('Social Count') }}</span>
-                </a>
-            </li>
+                        @if (canAccess(['contact index']))
+                            <li class="{{ setSidebarActive(['admin.contact.*']) }}">
+                                <a class="nav-link"
+                                    href="{{ route('admin.contact.index') }}">{{ __('Contact Page') }}</a>
+                            </li>
+                        @endif
+                    </ul>
+                </li>
+            @endif
+
+            @if (canAccess(['social count index']))
+                <li class="{{ setSidebarActive(['admin.social-count.*']) }}">
+                    <a class="nav-link" href="{{ route('admin.social-count.index') }}"><i class="far fa-square"></i>
+                        <span>{{ __('Social Count') }}</span>
+                    </a>
+                </li>
+            @endif
 
             <li class="{{ setSidebarActive(['admin.contact-message.*']) }}">
                 <a class="nav-link" href="{{ route('admin.contact-message.index') }}"><i class="far fa-square"></i>
