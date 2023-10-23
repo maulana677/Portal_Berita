@@ -10,11 +10,19 @@ use Illuminate\Http\Request;
 
 class LanguageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['permission:languages index,admin'])->only(['index']);
+        $this->middleware(['permission:languages create,admin'])->only(['create', 'store']);
+        $this->middleware(['permission:languages update,admin'])->only(['edit', 'update']);
+        $this->middleware(['permission:languages delete,admin'])->only(['destroy']);
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {   
+    {
         $bahasa = Language::all();
         return view('admin.bahasa.index', compact('bahasa'));
     }
@@ -40,7 +48,7 @@ class LanguageController extends Controller
         $bahasa->status = $request->status;
         $bahasa->save();
 
-        toast( __('Created Successfully'),'success')->width('350');
+        toast(__('Created Successfully'), 'success')->width('350');
 
         return redirect()->route('admin.bahasa.index');
     }
@@ -75,7 +83,7 @@ class LanguageController extends Controller
         $bahasa->status = $request->status;
         $bahasa->save();
 
-        toast( __('Data berhasil diperbarui'),'success')->width('350');
+        toast(__('Data berhasil diperbarui'), 'success')->width('350');
 
         return redirect()->route('admin.bahasa.index');
     }
@@ -95,7 +103,5 @@ class LanguageController extends Controller
         } catch (\Throwable $th) {
             return response(['status' => 'error', 'message' => __('something went wrong!')]);
         }
-
-
     }
 }
