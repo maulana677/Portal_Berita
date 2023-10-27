@@ -14,7 +14,7 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">{{ __('Dashboard') }}</li>
-            <li class="active">
+            <li class="{{ setSidebarActive(['admin.dashboard']) }}">
                 <a href="{{ route('admin.dashboard') }}" class="nav-link"><i
                         class="fas fa-fire"></i><span>{{ __('Dashboard') }}</span></a>
             </li>
@@ -29,7 +29,7 @@
             @endif
 
             @if (canAccess(['news index']))
-                <li class="dropdown {{ setSidebarActive(['admin.berita.*']) }}">
+                <li class="dropdown {{ setSidebarActive(['admin.berita.*', 'admin.pending.news']) }}">
                     <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i>
                         <span>{{ __('News') }}</span>
                     </a>
@@ -37,7 +37,9 @@
                         <li class="{{ setSidebarActive(['admin.berita.*']) }}">
                             <a class="nav-link" href="{{ route('admin.berita.index') }}">{{ __('All News') }}</a>
                         </li>
-                        <li><a class="nav-link" href="forms-editor.html">{{ __('Editor') }}</a></li>
+                        <li class="{{ setSidebarActive(['admin.pending.news']) }}"><a class="nav-link"
+                                href="{{ route('admin.pending.news') }}">{{ __('Pending News') }}</a>
+                        </li>
                     </ul>
                 </li>
             @endif

@@ -10,6 +10,7 @@ use App\Models\Language;
 use App\Models\News;
 use App\Models\Tag;
 use App\Traits\FileUploadTrait;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,6 +33,13 @@ class NewsController extends Controller
     {
         $languages = Language::all();
         return view('admin.berita.index', compact('languages'));
+    }
+
+
+    public function pendingNews(): View
+    {
+        $languages = Language::all();
+        return view('admin.pending-news.index', compact('languages'));
     }
 
     /**

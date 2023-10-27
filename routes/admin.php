@@ -54,6 +54,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
     Route::get('fetch-berita-category', [NewsController::class, 'fetchCategory'])->name('fetch-berita-category');
     Route::get('toggle-berita-status', [NewsController::class, 'toggleBeritaStatus'])->name('toggle-berita-status');
     Route::get('berita-copy/{id}', [NewsController::class, 'copyNews'])->name('berita-copy');
+    Route::get('pending-news', [NewsController::class, 'pendingNews'])->name('pending.news');
     Route::resource('berita', NewsController::class);
 
     // route pengaturan
