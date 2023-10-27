@@ -55,6 +55,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
     Route::get('toggle-berita-status', [NewsController::class, 'toggleBeritaStatus'])->name('toggle-berita-status');
     Route::get('berita-copy/{id}', [NewsController::class, 'copyNews'])->name('berita-copy');
     Route::get('pending-news', [NewsController::class, 'pendingNews'])->name('pending.news');
+    Route::put('approve-news', [NewsController::class, 'approveNews'])->name('approve.news');
     Route::resource('berita', NewsController::class);
 
     // route pengaturan
