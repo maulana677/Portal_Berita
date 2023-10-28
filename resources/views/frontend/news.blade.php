@@ -12,7 +12,7 @@
                                 <i class="fa fa-home"></i> {{ __('Home') }}</a>
                         </li>
                         <li class="breadcrumbs__item">
-                            <a href="javascript:;" class="breadcrumbs__url">News</a>
+                            <a href="javascript:;" class="breadcrumbs__url">{{ __('News') }}</a>
                         </li>
                     </ul>
                 </div>
@@ -159,7 +159,7 @@
                 <div class="col-md-4">
                     <div class="sidebar-sticky">
                         <aside class="wrapper__list__article ">
-                            <h4 class="border_section">Sidebar</h4>
+                            <h4 class="border_section">{{ __('Sidebar') }}</h4>
                             <div class="wrapper__list__article-small">
                                 @foreach ($recentNews as $news)
                                     @if ($loop->index <= 2)

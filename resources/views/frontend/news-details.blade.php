@@ -410,7 +410,7 @@
                                                 <ul class="list-inline">
                                                     <li class="list-inline-item">
                                                         <span class="text-primary">
-                                                            by {{ $post->auther->name }}
+                                                            {{ __('by') }} {{ $post->auther->name }}
                                                         </span>
                                                     </li>
                                                     <li class="list-inline-item">
