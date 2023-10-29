@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\FooterGridTwoController;
 use App\Http\Controllers\Admin\FooterInfoController;
 use App\Http\Controllers\Admin\HomeSectionSettingController;
 use App\Http\Controllers\Admin\LanguageController;
+use App\Http\Controllers\Admin\LocalizationController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RolePermisionController;
@@ -109,7 +110,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
     Route::put('seo-setting', [SettingController::class, 'updateSeoSetting'])->name('seo-setting.update');
     Route::put('appearance-setting', [SettingController::class, 'updateAppearanceSetting'])->name('appearance-setting.update');
 
-    /** Role dan Permission route */
+    /** Role dan Permission routes */
     Route::get('role', [RolePermisionController::class, 'index'])->name('role.index');
     Route::get('role/create', [RolePermisionController::class, 'create'])->name('role.create');
     Route::post('role/create', [RolePermisionController::class, 'store'])->name('role.store');
@@ -117,6 +118,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['admin']],
     Route::put('role/{id}/edit', [RolePermisionController::class, 'update'])->name('role.update');
     Route::delete('role/{id}/destroy', [RolePermisionController::class, 'destroy'])->name('role.destroy');
 
-    /** admin user route */
+    /** admin user routes */
     Route::resource('role-users', RoleUserController::class);
+
+    /** localization routes */
+    Route::get('localization', [LocalizationController::class, 'index'])->name('localization.index');
 });
