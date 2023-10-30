@@ -53,14 +53,36 @@
                                     <table class="table table-striped" id="table-{{ $language->lang }}">
                                         <thead>
                                             <tr>
-                                                <th class="text-center">
+                                                <th class="text-left">
                                                     #
                                                 </th>
-
+                                                <th class="text-left">
+                                                    {{ __('String') }}
+                                                </th>
+                                                <th class="text-left">
+                                                    {{ __('Translation') }}
+                                                </th>
+                                                <th class="text-left">
+                                                    {{ __('Action') }}
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @php
+                                                $translatedValues = trans('frontend', [], $language->lang);
+                                            @endphp
 
+                                            @foreach ($translatedValues as $key => $value)
+                                                <tr>
+                                                    <td>{{ ++$loop->index }}</td>
+                                                    <td>{{ $key }}</td>
+                                                    <td>{{ $value }}</td>
+                                                    <td>
+                                                        <a href="" class="btn btn-primary"><i
+                                                                class="fas fa-edit"></i></a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
 
                                         </tbody>
                                     </table>
@@ -81,7 +103,6 @@
             $("#table-{{ $language->lang }}").dataTable({
                 "columnDefs": [{
                     "sortable": false,
-                    "targets": [2, 3]
                 }]
             });
         @endforeach
