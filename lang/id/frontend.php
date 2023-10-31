@@ -1,7 +1,7 @@
 <?php
 
 return array (
-  'Home' => 'Home',
+  'Home' => 'Halaman Utama',
   'About' => 'About',
   'Contact' => 'Contact',
   'contact us' => 'contact us',
