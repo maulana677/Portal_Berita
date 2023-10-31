@@ -43,7 +43,13 @@
                                                     class="btn btn-primary mx-2">{{ __('Generate Strings') }}</button>
                                             </form>
 
-                                            <button class="btn btn-dark mx-2">{{ __('Translate Strings') }}</button>
+                                            <form id="translate-form" action="{{ route('admin.translate-string') }}"
+                                                method="POST">
+
+                                                <input type="hidden" name="language_code" value="{{ $language->lang }}">
+                                                <button type="submit"
+                                                    class="btn btn-dark mx-2">{{ __('Translate Strings') }}</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -165,6 +171,22 @@
                 $('input[name="key"]').val(key)
                 $('input[name="value"]').val(value)
                 $('input[name="file_name"]').val(filename)
+            })
+
+            $('#translate-form').on('submit', function(e) {
+                e.preventDefault();
+                let formData = $(this).serialize();
+                $.ajax({
+                    method: 'POST',
+                    url: "{{ route('admin.translate-string') }}",
+                    data: formData,
+                    success: function(data) {
+                        console.log(data);
+                    },
+                    error: function(data) {
+                        console.log(data);
+                    }
+                })
             })
         })
     </script>
