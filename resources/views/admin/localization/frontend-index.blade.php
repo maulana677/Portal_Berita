@@ -48,7 +48,7 @@
                                                 <input type="hidden" name="language_code" value="{{ $language->lang }}">
                                                 <input type="hidden" name="file_name" value="frontend">
                                                 <button type="submit"
-                                                    class="btn btn-dark mx-2">{{ __('Translate Strings') }}</button>
+                                                    class="btn btn-dark mx-2 translate-button">{{ __('Translate Strings') }}</button>
                                             </form>
                                         </div>
                                     </div>
@@ -180,8 +180,19 @@
                     method: 'POST',
                     url: "{{ route('admin.translate-string') }}",
                     data: formData,
+                    beforeSend: function() {
+                        $('.translate-button').text("Translating Please Wait...")
+                        $('.translate-button').prop('disabled', true);
+                    },
                     success: function(data) {
-                        console.log(data);
+                        if (data.status == 'success') {
+                            Swal.fire(
+                                'Done!',
+                                data.message,
+                                'success'
+                            )
+                            window.location.reload();
+                        }
                     },
                     error: function(data) {
                         console.log(data);
