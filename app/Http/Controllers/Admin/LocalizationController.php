@@ -80,6 +80,13 @@ class LocalizationController extends Controller
 
     public function translateString(Request $request)
     {
+        $languageStrings = trans($request->file_name, [], $request->language_code);
+
+        $keyStrings = array_keys($languageStrings);
+
+        $text = implode(' || ', $keyStrings);
+        dd($text);
+
         $response = Http::withHeaders([
             'X-RapidAPI-Host' => 'microsoft-translator-text.p.rapidapi.com',
             'X-RapidAPI-Key' => 'dbd8d4e7c5msh4f0615717a94277p169889jsndbfd909766cc',

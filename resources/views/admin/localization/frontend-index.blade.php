@@ -45,8 +45,8 @@
 
                                             <form class="translate-form" action="{{ route('admin.translate-string') }}"
                                                 method="POST">
-
                                                 <input type="hidden" name="language_code" value="{{ $language->lang }}">
+                                                <input type="hidden" name="file_name" value="frontend">
                                                 <button type="submit"
                                                     class="btn btn-dark mx-2">{{ __('Translate Strings') }}</button>
                                             </form>
