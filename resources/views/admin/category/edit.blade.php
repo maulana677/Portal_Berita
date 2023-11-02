@@ -7,7 +7,7 @@
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('Update Categories') }}</h4>
+                <h4>{{ __('Update Category') }}</h4>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.category.update', $category->id) }}" method="POST">

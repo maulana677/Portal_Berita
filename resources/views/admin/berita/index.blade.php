@@ -58,9 +58,9 @@
                                                 <th class="text-center">
                                                     #
                                                 </th>
-                                                <th>{{ __('Gambar') }}</th>
-                                                <th>{{ __('Judul') }}</th>
-                                                <th>{{ __('Kategori') }}</th>
+                                                <th>{{ __('Image') }}</th>
+                                                <th>{{ __('Title') }}</th>
+                                                <th>{{ __('Category') }}</th>
                                                 @if (canAccess(['news status', 'news all-access']))
                                                     <th>{{ __('In Breaking') }}</th>
                                                     <th>{{ __('In Slider') }}</th>

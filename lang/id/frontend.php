@@ -63,4 +63,5 @@ return array (
   'This is your login Credentials' => 'Ini adalah kredensial login Anda',
   'Email' => 'Surel',
   'Password' => 'Kata sandi',
+  'Advertisement' => 'Iklan',
 );
