@@ -83,6 +83,7 @@ class LocalizationController extends Controller
         $languageStrings[$request->key] = $request->value;
 
         $phpArray = "<?php\n\nreturn " . var_export($languageStrings, true) . ";\n";
+
         file_put_contents(lang_path($request->lang_code . '/' . $request->file_name . '.php'), $phpArray);
 
         toast(__('Updated Successfully!'), 'success');

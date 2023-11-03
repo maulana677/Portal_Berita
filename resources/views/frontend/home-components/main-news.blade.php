@@ -450,7 +450,7 @@
                 <div class="col-md-4">
                     <div class="sticky-top">
                         <aside class="wrapper__list__article">
-                            <h4 class="border_section">Most Viewed</h4>
+                            <h4 class="border_section">{{ __('frontend.Most Viewed') }}</h4>
                             <div class="wrapper__list__article-small">
 
                                 @foreach ($mostViewedPosts as $mostViewedNews)

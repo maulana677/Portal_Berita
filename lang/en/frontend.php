@@ -13,6 +13,7 @@ return array (
   'by' => 'by',
   'recent post' => 'recent post',
   'popular post' => 'popular post',
+  'Most Viewed' => 'Most Viewed',
   'read more' => 'read more',
   'stay conected' => 'stay conected',
   'tags' => 'tags',
@@ -63,5 +64,4 @@ return array (
   'This is your login Credentials' => 'This is your login Credentials',
   'Email' => 'Email',
   'Password' => 'Password',
-  'About Page' => 'About Page two',
 );

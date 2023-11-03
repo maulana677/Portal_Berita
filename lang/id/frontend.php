@@ -13,6 +13,7 @@ return array (
   'by' => 'oleh',
   'recent post' => 'posting terbaru',
   'popular post' => 'Pesan Populer',
+  'Most Viewed' => 'Terbanyak Dilihat',
   'read more' => 'Baca lebih lanjut',
   'stay conected' => 'Tetap Terhubung',
   'tags' => 'tag',
@@ -63,5 +64,4 @@ return array (
   'This is your login Credentials' => 'Ini adalah kredensial login Anda',
   'Email' => 'Surel',
   'Password' => 'Kata sandi',
-  'Advertisement' => 'Iklan',
 );
