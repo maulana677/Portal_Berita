@@ -3,11 +3,11 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>{{ __('Settings') }}</h1>
+            <h1>{{ __('admin.Settings') }}</h1>
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('Setting') }}</h4>
+                <h4>{{ __('admin.Setting') }}</h4>
             </div>
             <div class="card-body">
                 <div class="row">
@@ -15,15 +15,15 @@
                         <ul class="nav nav-pills flex-column" id="myTab4" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="home-tab4" data-toggle="tab" href="#home4" role="tab"
-                                    aria-controls="home" aria-selected="true">{{ __('General Settings') }}</a>
+                                    aria-controls="home" aria-selected="true">{{ __('admin.General Settings') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="profile-tab4" data-toggle="tab" href="#profile4" role="tab"
-                                    aria-controls="profile" aria-selected="false">{{ __('SEO Settings') }}</a>
+                                    aria-controls="profile" aria-selected="false">{{ __('admin.SEO Settings') }}</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" id="contact-tab4" data-toggle="tab" href="#contact4" role="tab"
-                                    aria-controls="contact" aria-selected="false">{{ __('Appearance Settings') }}</a>
+                                    aria-controls="contact" aria-selected="false">{{ __('admin.Appearance Settings') }}</a>
                             </li>
                         </ul>
                     </div>

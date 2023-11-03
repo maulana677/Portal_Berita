@@ -3,7 +3,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>{{ __('Footer') }}</h1>
+            <h1>{{ __('admin.Footer') }}</h1>
         </div>
 
         <div class="card card-primary">
@@ -30,7 +30,7 @@
                                 <form action="{{ route('admin.footer-grid-one-title') }}" method="POST">
                                     @csrf
                                     <div class="form-group">
-                                        <label for="">{{ __('Footer Title') }}</label>
+                                        <label for="">{{ __('admin.Footer Title') }}</label>
                                         <input type="text" class="form-control" name="title"
                                             value="{{ $footerTitle->value }}">
                                         <input type="hidden" value="{{ $language->lang }}" class="form-control"
@@ -40,7 +40,7 @@
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary">{{ __('Save') }}</button>
+                                        <button type="submit" class="btn btn-primary">{{ __('admin.Save') }}</button>
                                     </div>
                                 </form>
                             </div>
@@ -53,10 +53,10 @@
 
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('All Footer grid one links') }}</h4>
+                <h4>{{ __('admin.All Footer grid one links') }}</h4>
                 <div class="card-header-action">
                     <a href="{{ route('admin.footer-grid-one.create') }}" class="btn btn-primary">
-                        <i class="fas fa-plus"></i> {{ __('Create New') }}
+                        <i class="fas fa-plus"></i> {{ __('admin.Create New') }}
                     </a>
                 </div>
             </div>
@@ -86,10 +86,10 @@
                                                 <th class="text-left">
                                                     No
                                                 </th>
-                                                <th>{{ __('Name') }}</th>
-                                                <th>{{ __('Language') }}</th>
-                                                <th>{{ __('Active') }}</th>
-                                                <th>{{ __('Action') }}</th>
+                                                <th>{{ __('admin.Name') }}</th>
+                                                <th>{{ __('admin.Language') }}</th>
+                                                <th>{{ __('admin.Active') }}</th>
+                                                <th>{{ __('admin.Action') }}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -100,9 +100,9 @@
                                                     <td>{{ $item->language }}</td>
                                                     <td>
                                                         @if ($item->status == 1)
-                                                            <span class="badge badge-primary">{{ __('Ya') }}</span>
+                                                            <span class="badge badge-primary">{{ __('admin.Ya') }}</span>
                                                         @else
-                                                            <span class="badge badge-danger">{{ __('Tidak') }}</span>
+                                                            <span class="badge badge-danger">{{ __('admin.Tidak') }}</span>
                                                         @endif
                                                     </td>
                                                     <td>

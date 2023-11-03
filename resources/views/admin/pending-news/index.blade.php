@@ -3,11 +3,11 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>{{ __('Pending News') }}</h1>
+            <h1>{{ __('admin.Pending News') }}</h1>
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('All Pending') }}</h4>
+                <h4>{{ __('admin.All Pending') }}</h4>
             </div>
 
             @php
@@ -37,11 +37,11 @@
                                 <th class="text-center">
                                     #
                                 </th>
-                                <th>{{ __('Gambar') }}</th>
-                                <th>{{ __('Judul') }}</th>
-                                <th>{{ __('Kategori') }}</th>
-                                <th>{{ __('Approve') }}</th>
-                                <th>{{ __('Action') }}</th>
+                                <th>{{ __('admin.Gambar') }}</th>
+                                <th>{{ __('admin.Judul') }}</th>
+                                <th>{{ __('admin.Kategori') }}</th>
+                                <th>{{ __('admin.Approve') }}</th>
+                                <th>{{ __('admin.Action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,8 +58,8 @@
                                             <input type="hidden" name="id" value="{{ $item->id }}">
                                             <div class="form-group">
                                                 <select name="is_approved" class="form-control" id="approve_input">
-                                                    <option value="0">{{ __('Pending') }}</option>
-                                                    <option value="1">{{ __('Approved') }}</option>
+                                                    <option value="0">{{ __('admin.Pending') }}</option>
+                                                    <option value="1">{{ __('admin.Approved') }}</option>
                                                 </select>
                                             </div>
                                         </form>

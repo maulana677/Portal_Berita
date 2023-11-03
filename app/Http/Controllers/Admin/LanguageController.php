@@ -48,7 +48,7 @@ class LanguageController extends Controller
         $bahasa->status = $request->status;
         $bahasa->save();
 
-        toast(__('Created Successfully'), 'success')->width('350');
+        toast(__('admin.Created Successfully'), 'success')->width('350');
 
         return redirect()->route('admin.bahasa.index');
     }
@@ -83,7 +83,7 @@ class LanguageController extends Controller
         $bahasa->status = $request->status;
         $bahasa->save();
 
-        toast(__('Data berhasil diperbarui'), 'success')->width('350');
+        toast(__('admin.Data berhasil diperbarui'), 'success')->width('350');
 
         return redirect()->route('admin.bahasa.index');
     }
@@ -96,12 +96,12 @@ class LanguageController extends Controller
         try {
             $bahasa = Language::findOrFail($id);
             if ($bahasa->lang === 'en') {
-                return response(['status' => 'error', 'message' => __('Tidak dapat menghapus data yang ini')]);
+                return response(['status' => 'error', 'message' => __('admin.Tidak dapat menghapus data yang ini')]);
             }
             $bahasa->delete();
-            return response(['status' => 'success', 'message' => __('Data berhasil dihapus!')]);
+            return response(['status' => 'success', 'message' => __('admin.Data berhasil dihapus!')]);
         } catch (\Throwable $th) {
-            return response(['status' => 'error', 'message' => __('something went wrong!')]);
+            return response(['status' => 'error', 'message' => __('admin.something went wrong!')]);
         }
     }
 }

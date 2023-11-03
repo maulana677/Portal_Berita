@@ -3,14 +3,14 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>{{ __('Social Links') }}</h1>
+            <h1>{{ __('admin.Social Links') }}</h1>
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('All Link') }}</h4>
+                <h4>{{ __('admin.All Link') }}</h4>
                 <div class="card-header-action">
                     <a href="{{ route('admin.social-link.create') }}" class="btn btn-primary">
-                        <i class="fas fa-plus"></i> {{ __('Create New') }}
+                        <i class="fas fa-plus"></i> {{ __('admin.Create New') }}
                     </a>
                 </div>
             </div>
@@ -22,10 +22,10 @@
                                 <th class="text-center">
                                     #
                                 </th>
-                                <th>{{ __('Icon') }}</th>
-                                <th>{{ __('Url') }}</th>
-                                <th>{{ __('Status') }}</th>
-                                <th>{{ __('Action') }}</th>
+                                <th>{{ __('admin.Icon') }}</th>
+                                <th>{{ __('admin.Url') }}</th>
+                                <th>{{ __('admin.Status') }}</th>
+                                <th>{{ __('admin.Action') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -36,9 +36,9 @@
                                     <td>{{ $link->url }}</td>
                                     <td>
                                         @if ($link->status === 1)
-                                            <span class="badge badge-success">{{ __('Aktif') }}</span>
+                                            <span class="badge badge-success">{{ __('admin.Aktif') }}</span>
                                         @else
-                                            <span class="badge badge-danger">{{ __('Tidak Aktif') }}</span>
+                                            <span class="badge badge-danger">{{ __('admin.Tidak Aktif') }}</span>
                                         @endif
                                     </td>
                                     <td>

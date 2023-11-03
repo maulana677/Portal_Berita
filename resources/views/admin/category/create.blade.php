@@ -3,19 +3,19 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>{{ __('Category') }}</h1>
+            <h1>{{ __('admin.Category') }}</h1>
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>{{ __('Create Category') }}</h4>
+                <h4>{{ __('admin.Create Category') }}</h4>
             </div>
             <div class="card-body">
                 <form action="{{ route('admin.category.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="">{{ __('Language') }}</label>
+                        <label for="">{{ __('admin.Language') }}</label>
                         <select name="language" id="language-select" class="form-control select2" style="width: 100%;">
-                            <option value="">--{{ __('Pilih') }}--</option>
+                            <option value="">--{{ __('admin.Pilih') }}--</option>
                             @foreach ($bahasa as $lang)
                                 <option value="{{ $lang->lang }}">{{ $lang->name }}</option>
                             @endforeach
@@ -25,33 +25,33 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="">{{ __('Name') }}</label>
+                        <label for="">{{ __('admin.Name') }}</label>
                         <input name="name" type="text" class="form-control" id="name">
                         @error('name')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="">{{ __('Show at Nav') }} </label>
+                        <label for="">{{ __('admin.Show at Nav') }} </label>
                         <select name="show_at_nav" id="" class="form-control">
-                            <option value="0">{{ __('Tidak') }}</option>
-                            <option value="1">{{ __('Ya') }}</option>
+                            <option value="0">{{ __('admin.Tidak') }}</option>
+                            <option value="1">{{ __('admin.Ya') }}</option>
                         </select>
                         @error('default')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="form-group">
-                        <label for="">{{ __('Status') }}</label>
+                        <label for="">{{ __('admin.Status') }}</label>
                         <select name="status" id="" class="form-control">
-                            <option value="1">{{ __('Aktif') }}</option>
-                            <option value="0">{{ __('Nonaktif') }}</option>
+                            <option value="1">{{ __('admin.Aktif') }}</option>
+                            <option value="0">{{ __('admin.Nonaktif') }}</option>
                         </select>
                         @error('status')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary">{{ __('Create') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ __('admin.Create') }}</button>
                 </form>
             </div>
         </div>

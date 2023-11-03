@@ -32,7 +32,7 @@ class ProfileController extends Controller
     {
         /**yang menangani gambar */
         $imagePath = $this->handleFileUpload($request, 'image', $request->old_image);
-        
+
         /** simpan data yang ingin di update */
         $admin = Admin::findOrFail($id);
         $admin->image = !empty($imagePath) ? $imagePath : $request->old_image;
@@ -40,10 +40,9 @@ class ProfileController extends Controller
         $admin->email = $request->email;
         $admin->save();
 
-        toast( __('Profil berhasil di update'),'success')->width('400');
+        toast(__('admin.Profil berhasil di update'), 'success')->width('400');
 
         return redirect()->back();
-
     }
 
     /**
@@ -51,13 +50,13 @@ class ProfileController extends Controller
      */
     public function passwordUpdate(AdminUpdatePasswordRequest $request, string $id)
     {
-        
+
 
         $admin = Admin::findOrFail($id);
         $admin->password = bcrypt($request->password);
         $admin->save();
 
-        toast( __('Password berhasil di update'),'success')->width('400');
+        toast(__('admin.Password berhasil di update'), 'success')->width('400');
 
         return redirect()->back();
     }
