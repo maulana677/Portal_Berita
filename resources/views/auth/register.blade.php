@@ -40,7 +40,7 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="{{ __('frontend.Confirm_Password') }}"
+                                    <input class="form-control" placeholder="{{ __('frontend.Confirm Password') }}"
                                         type="password" name="password_confirmation">
                                     @error('password_confirmation')
                                         <p class="text-danger">{{ $message }}</p>
@@ -54,7 +54,7 @@
                         </div>
                     </div>
 
-                    <p class="text-center mt-4 mb-0">{{ __('frontend.Don\'t have account?') }} <a
+                    <p class="text-center mt-4 mb-0">{{ __('frontend.Already have an account?') }} <a
                             href="{{ route('login') }}">{{ __('Login') }}</a>
                     </p>
                 </div>
