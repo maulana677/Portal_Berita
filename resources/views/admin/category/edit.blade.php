@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <label for="">{{ __('admin.Language') }}</label>
                         <select name="language" id="language-select" class="form-control select2" style="width: 100%;">
-                            <option value="">--{{ __('admin.Pilih') }}--</option>
+                            <option value="">--{{ __('admin.Select') }}--</option>
                             @foreach ($languages as $lang)
                                 <option {{ $lang->lang === $category->language ? 'selected' : '' }}
                                     value="{{ $lang->lang }}">
@@ -40,9 +40,9 @@
                         <label for="">{{ __('admin.Show at Nav') }} </label>
                         <select name="show_at_nav" id="" class="form-control">
                             <option {{ $category->show_at_nav === 0 ? 'selected' : '' }} value="0">
-                                {{ __('admin.Tidak') }}</option>
+                                {{ __('admin.No') }}</option>
                             <option {{ $category->show_at_nav === 1 ? 'selected' : '' }} value="1">
-                                {{ __('admin.Ya') }}</option>
+                                {{ __('admin.Yes') }}</option>
                         </select>
                         @error('default')
                             <p class="text-danger">{{ $message }}</p>
@@ -51,10 +51,11 @@
                     <div class="form-group">
                         <label for="">{{ __('admin.Status') }}</label>
                         <select name="status" id="" class="form-control">
-                            <option {{ $category->status === 1 ? 'selected' : '' }} value="1">{{ __('admin.Aktif') }}
+                            <option {{ $category->status === 1 ? 'selected' : '' }} value="1">
+                                {{ __('admin.Active') }}
                             </option>
                             <option {{ $category->status === 0 ? 'selected' : '' }} value="0">
-                                {{ __('admin.Nonaktif') }}
+                                {{ __('admin.Inactive') }}
                             </option>
                         </select>
                         @error('status')

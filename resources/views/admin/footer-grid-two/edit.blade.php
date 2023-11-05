@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <label for="">{{ __('admin.Language') }}</label>
                         <select name="language" id="language-select" class="form-control select2" style="width: 100%;">
-                            <option value="">--{{ __('admin.Pilih') }}--</option>
+                            <option value="">--{{ __('admin.Select') }}--</option>
                             @foreach ($bahasa as $lang)
                                 <option {{ $footer->language == $lang->lang ? 'selected' : '' }}
                                     value="{{ $lang->lang }}">{{ $lang->name }}</option>
@@ -44,9 +44,9 @@
                     <div class="form-group">
                         <label for="">{{ __('admin.Status') }}</label>
                         <select name="status" id="" class="form-control">
-                            <option {{ $footer->status == 1 ? 'selected' : '' }} value="1">{{ __('admin.Aktif') }}
+                            <option {{ $footer->status == 1 ? 'selected' : '' }} value="1">{{ __('admin.Active') }}
                             </option>
-                            <option {{ $footer->status == 0 ? 'selected' : '' }} value="0">{{ __('admin.Nonaktif') }}
+                            <option {{ $footer->status == 0 ? 'selected' : '' }} value="0">{{ __('admin.Inactive') }}
                             </option>
                         </select>
                         @error('status')

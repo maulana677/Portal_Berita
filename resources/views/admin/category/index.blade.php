@@ -43,7 +43,7 @@
                                                     #
                                                 </th>
                                                 <th>{{ __('admin.Language') }}</th>
-                                                <th>{{ __('admin.Kode Bahasa') }}</th>
+                                                <th>{{ __('admin.Code') }}</th>
                                                 <th>{{ __('admin.In Nav') }}</th>
                                                 <th>{{ __('admin.Status') }}</th>
                                                 <th>{{ __('admin.Action') }}</th>
@@ -57,18 +57,18 @@
                                                     <td>{{ $category->language }}</td>
                                                     <td>
                                                         @if ($category->show_at_nav == 1)
-                                                            <span class="badge badge-primary">{{ __('admin.Ya') }}</span>
+                                                            <span class="badge badge-primary">{{ __('admin.Yes') }}</span>
                                                         @else
-                                                            <span class="badge badge-danger">{{ __('admin.Tidak') }}</span>
+                                                            <span class="badge badge-danger">{{ __('admin.No') }}</span>
                                                         @endif
                                                     </td>
                                                     <td>
                                                         @if ($category->status == 1)
                                                             <span
-                                                                class="badge badge-success">{{ __('admin.Aktif') }}</span>
+                                                                class="badge badge-success">{{ __('admin.Active') }}</span>
                                                         @else
                                                             <span
-                                                                class="badge badge-danger">{{ __('admin.Nonaktif') }}</span>
+                                                                class="badge badge-danger">{{ __('admin.Inactive') }}</span>
                                                         @endif
                                                     </td>
 

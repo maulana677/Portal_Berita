@@ -22,8 +22,8 @@
                                 <th class="text-center">
                                     #
                                 </th>
-                                <th>{{ __('admin.Nama Bahasa') }}</th>
-                                <th>{{ __('admin.Kode Bahasa') }}</th>
+                                <th>{{ __('admin.Language') }}</th>
+                                <th>{{ __('admin.Code') }}</th>
                                 <th>{{ __('admin.Default') }}</th>
                                 <th>{{ __('admin.Status') }}</th>
                                 <th>{{ __('admin.Action') }}</th>
@@ -39,14 +39,14 @@
                                         @if ($bahasa->default == 1)
                                             <span class="badge badge-primary">{{ __('admin.Default') }}</span>
                                         @else
-                                            <span class="badge badge-warning">{{ __('admin.Tidak') }}</span>
+                                            <span class="badge badge-warning">{{ __('admin.No') }}</span>
                                         @endif
                                     </td>
                                     <td>
                                         @if ($bahasa->status == 1)
-                                            <span class="badge badge-success">{{ __('admin.Aktif') }}</span>
+                                            <span class="badge badge-success">{{ __('admin.Active') }}</span>
                                         @else
-                                            <span class="badge badge-danger">{{ __('admin.Non Aktif') }}</span>
+                                            <span class="badge badge-danger">{{ __('admin.Non Active') }}</span>
                                         @endif
                                     </td>
                                     <td>

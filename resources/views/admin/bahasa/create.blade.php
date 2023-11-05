@@ -13,9 +13,9 @@
                 <form action="{{ route('admin.bahasa.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
-                        <label for="">{{ __('admin.Bahasa') }}</label>
+                        <label for="">{{ __('admin.Language') }}</label>
                         <select name="lang" id="language-select" class="form-control select2" style="width: 100%;">
-                            <option value="">--{{ __('admin.Pilih') }}--</option>
+                            <option value="">--{{ __('admin.Select') }}--</option>
                             @foreach (config('language') as $key => $lang)
                                 <option value="{{ $key }}">{{ $lang['name'] }}</option>
                             @endforeach
@@ -41,8 +41,8 @@
                     <div class="form-group">
                         <label for="">{{ __('admin.Is it default?') }} </label>
                         <select name="default" id="" class="form-control">
-                            <option value="0">{{ __('admin.Tidak') }}</option>
-                            <option value="1">{{ __('admin.Ya') }}</option>
+                            <option value="0">{{ __('admin.No') }}</option>
+                            <option value="1">{{ __('admin.Yes') }}</option>
                         </select>
                         @error('default')
                             <p class="text-danger">{{ $message }}</p>
@@ -51,14 +51,14 @@
                     <div class="form-group">
                         <label for="">{{ __('admin.Status') }}</label>
                         <select name="status" id="" class="form-control">
-                            <option value="1">{{ __('admin.Aktif') }}</option>
-                            <option value="0">{{ __('admin.Nonaktif') }}</option>
+                            <option value="1">{{ __('admin.Active') }}</option>
+                            <option value="0">{{ __('admin.Inactive') }}</option>
                         </select>
                         @error('status')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary">{{ __('admin.Tambah') }}</button>
+                    <button type="submit" class="btn btn-primary">{{ __('admin.Create') }}</button>
                 </form>
             </div>
         </div>

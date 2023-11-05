@@ -37,9 +37,9 @@
                                 <th class="text-center">
                                     #
                                 </th>
-                                <th>{{ __('admin.Gambar') }}</th>
-                                <th>{{ __('admin.Judul') }}</th>
-                                <th>{{ __('admin.Kategori') }}</th>
+                                <th>{{ __('admin.Image') }}</th>
+                                <th>{{ __('admin.Title') }}</th>
+                                <th>{{ __('admin.Category') }}</th>
                                 <th>{{ __('admin.Approve') }}</th>
                                 <th>{{ __('admin.Action') }}</th>
                             </tr>

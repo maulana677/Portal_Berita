@@ -36,10 +36,10 @@
                         <label for="">{{ __('admin.Status') }}</label>
                         <select name="status" id="" class="form-control">
                             <option {{ $socialLink->status == 1 ? 'selected' : '' }} value="1">
-                                {{ __('admin.Aktif') }}
+                                {{ __('admin.Active') }}
                             </option>
                             <option {{ $socialLink->status == 0 ? 'selected' : '' }} value="0">
-                                {{ __('admin.Nonaktif') }}
+                                {{ __('admin.Inactive') }}
                             </option>
                         </select>
                         @error('status')

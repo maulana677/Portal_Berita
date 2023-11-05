@@ -101,9 +101,9 @@ class CategoryController extends Controller
         try {
             $category = Category::findOrFail($id);
             $category->delete();
-            return response(['status' => 'success', 'message' => __('admin.Data berhasil dihapus')]);
+            return response(['status' => 'success', 'message' => __('admin.Data deleted successfully')]);
         } catch (\Throwable $th) {
-            return response(['status' => 'error', 'message' => __('admin.Ada yang salah')]);
+            return response(['status' => 'error', 'message' => __('admin.There is something wrong!')]);
         }
     }
 }

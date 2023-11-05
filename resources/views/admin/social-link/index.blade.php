@@ -36,9 +36,9 @@
                                     <td>{{ $link->url }}</td>
                                     <td>
                                         @if ($link->status === 1)
-                                            <span class="badge badge-success">{{ __('admin.Aktif') }}</span>
+                                            <span class="badge badge-success">{{ __('admin.Active') }}</span>
                                         @else
-                                            <span class="badge badge-danger">{{ __('admin.Tidak Aktif') }}</span>
+                                            <span class="badge badge-danger">{{ __('admin.Inactive') }}</span>
                                         @endif
                                     </td>
                                     <td>

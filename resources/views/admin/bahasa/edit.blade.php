@@ -14,9 +14,9 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group">
-                        <label for="">{{ __('admin.Bahasa') }}</label>
+                        <label for="">{{ __('admin.Language') }}</label>
                         <select name="lang" id="language-select" class="form-control select2" style="width: 100%;">
-                            <option value="">--{{ __('admin.Pilih') }}--</option>
+                            <option value="">--{{ __('admin.Select') }}--</option>
                             @foreach (config('language') as $key => $lang)
                                 <option @if ($bahasa->lang === $key) selected @endif value="{{ $key }}">
                                     {{ $lang['name'] }}</option>
@@ -45,9 +45,9 @@
                     <div class="form-group">
                         <label for="">{{ __('admin.Is it default?') }} </label>
                         <select name="default" id="" class="form-control">
-                            <option {{ $bahasa->default === 0 ? 'selected' : '' }} value="0">{{ __('admin.Tidak') }}
+                            <option {{ $bahasa->default === 0 ? 'selected' : '' }} value="0">{{ __('admin.No') }}
                             </option>
-                            <option {{ $bahasa->default === 1 ? 'selected' : '' }} value="1">{{ __('admin.Ya') }}
+                            <option {{ $bahasa->default === 1 ? 'selected' : '' }} value="1">{{ __('admin.Yes') }}
                             </option>
                         </select>
                         @error('default')
@@ -57,10 +57,10 @@
                     <div class="form-group">
                         <label for="">{{ __('admin.Status') }}</label>
                         <select name="status" id="" class="form-control">
-                            <option {{ $bahasa->status === 1 ? 'selected' : '' }} value="1">{{ __('admin.Aktif') }}
+                            <option {{ $bahasa->status === 1 ? 'selected' : '' }} value="1">{{ __('admin.Active') }}
                             </option>
                             <option {{ $bahasa->status === 0 ? 'selected' : '' }} value="0">
-                                {{ __('admin.Nonaktif') }}
+                                {{ __('admin.Inactive') }}
                             </option>
                         </select>
                         @error('status')

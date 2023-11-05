@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <label for="">{{ __('admin.Bahasa') }}</label>
                         <select name="language" id="language-select" class="form-control select2" style="width: 100%;">
-                            <option value="">--{{ __('admin.Pilih') }}--</option>
+                            <option value="">--{{ __('admin.Select') }}--</option>
                             @foreach ($bahasa as $lang)
                                 <option {{ $lang->lang === $news->language ? 'selected' : '' }} value="{{ $lang->lang }}">
                                     {{ $lang->name }}</option>
@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <label for="">{{ __('admin.Category') }}</label>
                         <select name="category" id="category" class="form-control select2" style="width: 100%;">
-                            <option value="">--{{ __('admin.Pilih') }}--</option>
+                            <option value="">--{{ __('admin.Select') }}--</option>
                             @foreach ($categories as $category)
                                 <option {{ $category->id === $news->category_id ? 'selected' : '' }}
                                     value="{{ $category->id }}">

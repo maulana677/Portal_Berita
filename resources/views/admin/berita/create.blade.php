@@ -15,7 +15,7 @@
                     <div class="form-group">
                         <label for="">{{ __('admin.Language') }}</label>
                         <select name="language" id="language-select" class="form-control select2" style="width: 100%;">
-                            <option value="">--{{ __('admin.Pilih') }}--</option>
+                            <option value="">--{{ __('admin.Select') }}--</option>
                             @foreach ($bahasa as $lang)
                                 <option value="{{ $lang->lang }}">{{ $lang->name }}</option>
                             @endforeach
@@ -27,7 +27,7 @@
                     <div class="form-group">
                         <label for="">{{ __('admin.Category') }}</label>
                         <select name="category" id="category" class="form-control select2" style="width: 100%;">
-                            <option value="">--{{ __('admin.Pilih') }}--</option>
+                            <option value="">--{{ __('admin.Select') }}--</option>
 
                         </select>
                         @error('category')

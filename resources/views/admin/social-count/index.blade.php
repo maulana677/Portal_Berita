@@ -57,10 +57,10 @@
                                                     <td>
                                                         @if ($socialCount->status == 1)
                                                             <span
-                                                                class="badge badge-success">{{ __('admin.Aktif') }}</span>
+                                                                class="badge badge-success">{{ __('admin.Active') }}</span>
                                                         @else
                                                             <span
-                                                                class="badge badge-danger">{{ __('admin.Tidak Aktif') }}</span>
+                                                                class="badge badge-danger">{{ __('admin.Inactive') }}</span>
                                                         @endif
                                                     </td>
                                                     <td>{{ $socialCount->language }}</td>
