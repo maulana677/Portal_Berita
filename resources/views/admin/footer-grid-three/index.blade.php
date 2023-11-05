@@ -100,9 +100,9 @@
                                                     <td>{{ $item->language }}</td>
                                                     <td>
                                                         @if ($item->status == 1)
-                                                            <span class="badge badge-primary">{{ __('admin.Ya') }}</span>
+                                                            <span class="badge badge-primary">{{ __('admin.Yes') }}</span>
                                                         @else
-                                                            <span class="badge badge-danger">{{ __('admin.Tidak') }}</span>
+                                                            <span class="badge badge-danger">{{ __('admin.No') }}</span>
                                                         @endif
                                                     </td>
                                                     <td>
