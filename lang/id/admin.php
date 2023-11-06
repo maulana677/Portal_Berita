@@ -101,8 +101,6 @@ return array (
   'All Footer grid one links' => 'Semua grid Footer satu link',
   'Footer Grid Three' => 'Kisi Footer Tiga',
   'All Footer grid three links' => 'Semua grid Footer tiga link',
-  'Ya' => 'Ya',
-  'Tidak' => 'Tidak',
   'Footer Grid Two' => 'Kisi Footer Dua',
   'All Footer grid two links' => 'Semua grid Footer dua link',
   'Footer Info' => 'Info Footer',

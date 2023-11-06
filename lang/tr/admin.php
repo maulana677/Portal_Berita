@@ -101,8 +101,6 @@ return array (
   'All Footer grid one links' => 'Tüm Altbilgi ızgarası bir bağlantı',
   'Footer Grid Three' => 'Altbilgi Izgarası Üç',
   'All Footer grid three links' => 'Tüm Altbilgi ızgarası üç bağlantı',
-  'Ya' => 'Ya',
-  'Tidak' => 'Tidak',
   'Footer Grid Two' => 'Altbilgi Izgarası İki',
   'All Footer grid two links' => 'Tüm Altbilgi ızgarası iki bağlantı',
   'Footer Info' => 'Altbilgi',
