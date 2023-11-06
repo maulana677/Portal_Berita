@@ -1,6 +1,7 @@
 @php
     $languages = \App\Models\Language::where('status', 1)->get();
-
+    $FeaturedCategories = \App\Models\Category::where(['status' => 1, 'language' => getLanguage(), 'show_at_nav' => 1])->get();
+    $categories = \App\Models\Category::where(['status' => 1, 'language' => getLanguage(), 'show_at_nav' => 0])->get();
 @endphp
 
 <header class="bg-light">
@@ -18,7 +19,7 @@
                             @endforeach
                         </ul>
                         <div class="topbar-text">
-                            Friday, May 19, 2023
+                            {{ date('l, F j, Y') }}
                         </div>
                     </div>
                 </div>
@@ -76,24 +77,34 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="main_nav99">
                     <ul class="navbar-nav ml-auto ">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="{{ url('/') }}">home</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="{{ route('about') }}"> about </a>
-                        </li>
-                        <li class="nav-item dropdown has-megamenu">
-                            <a class="nav-link" href="blog.html">blog </a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown"> Pages </a>
-                            <ul class="dropdown-menu animate fade-up">
-                                <li><a class="dropdown-item icon-arrow" href="blog_details.html"> Blog single detail
-                                    </a></li>
-                                <li><a class="dropdown-item" href="404.html"> 404 Error </a>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}"> contact </a></li>
+                        @foreach ($FeaturedCategories as $category)
+                            <li class="nav-item">
+                                <a class="nav-link active"
+                                    href="{{ route('news', ['category' => $category->slug]) }}">{{ $category->name }}</a>
+                            </li>
+                        @endforeach
+
+                        @if (count($categories) > 0)
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                                    {{ __('frontend.More') }} </a>
+                                <ul class="dropdown-menu animate fade-up">
+                                    @foreach ($categories as $category)
+                                        <li><a class="dropdown-item icon-arrow"
+                                                href="{{ route('news', ['category' => $category->slug]) }}">
+                                                {{ $category->name }}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endif
+                        <li class="nav-item"><a class="nav-link" href="{{ route('about') }}">
+                                {{ __('frontend.About Us') }}
+                            </a></li>
+                        <li class="nav-item"><a class="nav-link" href="{{ route('contact') }}">
+                                {{ __('frontend.Contact') }}
+                            </a></li>
                     </ul>
 
 

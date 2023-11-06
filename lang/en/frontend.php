@@ -25,6 +25,8 @@ return array (
   'Login' => 'Login',
   'Register' => 'Register',
   'Logout' => 'Logout',
+  'More' => 'More',
+  'About Us' => 'About Us',
   'News' => 'News',
   'By' => 'By',
   'in' => 'in',
