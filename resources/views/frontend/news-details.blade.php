@@ -157,43 +157,17 @@
                     <div class="wrap__profile">
                         <div class="wrap__profile-author">
                             <figure>
-                                <img style="width: 200px; height:200px; object-fit:200px;"
+                                <img style="width: 80px; height:80px; object-fit:cover;"
                                     src="{{ asset($news->auther->image) }}" alt=""
                                     class="img-fluid rounded-circle">
                             </figure>
                             <div class="wrap__profile-author-detail">
-                                <div class="wrap__profile-author-detail-name">author</div>
-                                <h4>{{ $news->auther->name }}</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis laboriosam ad
-                                    beatae itaque ea non
-                                    placeat officia ipsum praesentium! Ullam?</p>
-                                <ul class="list-inline">
-                                    <li class="list-inline-item">
-                                        <a href="#" class="btn btn-social btn-social-o facebook ">
-                                            <i class="fa fa-facebook"></i>
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#" class="btn btn-social btn-social-o twitter ">
-                                            <i class="fa fa-twitter"></i>
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#" class="btn btn-social btn-social-o instagram ">
-                                            <i class="fa fa-instagram"></i>
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#" class="btn btn-social btn-social-o telegram ">
-                                            <i class="fa fa-telegram"></i>
-                                        </a>
-                                    </li>
-                                    <li class="list-inline-item">
-                                        <a href="#" class="btn btn-social btn-social-o linkedin ">
-                                            <i class="fa fa-linkedin"></i>
-                                        </a>
-                                    </li>
-                                </ul>
+                                <div class="author-wrapper">
+                                    <div class="wrap__profile-author-detail-name">
+                                        {{ $news->auther->getRoleNames()->first() }}</div>
+                                    <h4>{{ $news->auther->name }}</h4>
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -210,8 +184,8 @@
                                         <aside class="comment-body">
                                             <div class="comment-meta">
                                                 <div class="comment-author vcard">
-                                                    <img src="{{ asset('frontend/assets/images/avatar.png') }}"
-                                                        class="avatar" alt="image">
+                                                    <img src="{{ asset('frontend/assets/images/avatar.png') }}" class="avatar"
+                                                        alt="image">
                                                     <b class="fn">{{ $comment->user->name }}</b>
                                                     <span class="says">{{ __('frontend.says') }}:</span>
                                                 </div>
@@ -439,22 +413,6 @@
                     <div class="sticky-top">
                         <aside class="wrapper__list__article ">
                             <!-- <h4 class="border_section">Sidebar</h4> -->
-                            <div class="mb-4">
-                                <div class="widget__form-search-bar  ">
-                                    <div class="row no-gutters">
-                                        <div class="col">
-                                            <input class="form-control border-secondary border-right-0 rounded-0"
-                                                value="" placeholder="Search">
-                                        </div>
-                                        <div class="col-auto">
-                                            <button
-                                                class="btn btn-outline-secondary border-left-0 rounded-0 rounded-right">
-                                                <i class="fa fa-search"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="wrapper__list__article-small">
                                 @foreach ($recentNews as $news)
                                     @if ($loop->index <= 2)

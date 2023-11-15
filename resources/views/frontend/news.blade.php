@@ -158,6 +158,24 @@
                                 object-fit: cover !important;
                             }
 
+                            .pagination .page-item>a {
+                                text-align: center;
+                            }
+
+                            .btn-social {
+                                background-color: #fff !important;
+                            }
+
+                            .btn-social>i {
+                                color: var(--colorPrimary) !important;
+                            }
+
+                            .img-fluid.rounded-circle {
+                                width: 100px !important;
+                                height: 100px !important;
+                                object-fit: cover !important;
+                            }
+
                             .wrap__profile-author {
                                 width: 50% !important;
                             }
@@ -188,6 +206,7 @@
                         {{ $news->appends(request()->query())->links() }}
                     </div>
                 </div>
+
                 <div class="col-md-4">
                     <div class="sidebar-sticky">
                         <aside class="wrapper__list__article ">
@@ -334,7 +353,6 @@
 
                 <div class="clearfix"></div>
             </div>
-
         </div>
         @if ($ad->news_page_ad_status == 1)
             <div class="large_add_banner my-4">
