@@ -10,6 +10,7 @@ return array (
   'Your message' => 'Pesan Anda',
   'Submit' => 'Kirim',
   'Info location' => 'Info lokasi',
+  'find us' => 'Temukan Kami',
   'by' => 'oleh',
   'recent post' => 'posting terbaru',
   'popular post' => 'Pesan Populer',

@@ -10,6 +10,7 @@ return array (
   'Your message' => 'Mesajınız',
   'Submit' => 'Gönder',
   'Info location' => 'Bilgi konumu',
+  'find us' => 'Bizi bulun',
   'by' => 'tarafından',
   'recent post' => 'Son Yazılar',
   'popular post' => 'Popüler Mesaj',
