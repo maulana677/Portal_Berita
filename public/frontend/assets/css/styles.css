@@ -17964,8 +17964,8 @@ body.offcanvas-active {
 .pagination {
     display: flex;
 }
-  
-.pagination .disabled > span {
+
+.pagination .disabled>span {
     color: black;
     float: left;
     text-decoration: none;
@@ -17984,7 +17984,7 @@ body.offcanvas-active {
     text-align: center;
 }
 
-.pagination .page-item > span {
+.pagination .page-item>span {
     color: black;
     float: left;
     text-decoration: none;
@@ -18003,15 +18003,16 @@ body.offcanvas-active {
     text-align: center;
 }
 
-.pagination .page-item > a {
+.pagination .page-item>a {
     text-align: center;
+
 }
 
 .btn-social {
     background-color: #fff !important;
 }
 
-.btn-social > i {
+.btn-social>i {
     color: var(--colorPrimary) !important;
 }
 
@@ -18045,4 +18046,8 @@ body.offcanvas-active {
 .list-inline-item-contact a i {
     color: #fff !important;
 }
+
+
+
+
 /*  */

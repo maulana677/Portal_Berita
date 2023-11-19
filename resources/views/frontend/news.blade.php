@@ -104,7 +104,7 @@
 
                     </aside>
                     <div class="text-center" style="display: flex; 
-                    justify-content: center;">
+                justify-content: center;">
                         <style type="text/css">
                             .pagination {
                                 display: flex;
