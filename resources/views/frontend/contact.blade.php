@@ -76,24 +76,19 @@
                                 <span>
                                     <i class="fa fa-home"></i>
                                 </span>
-
                                 {{ @$contact->address }}
-
-
                             </li>
                             <li>
                                 <span>
                                     <i class="fa fa-phone"></i>
                                     <a href="tel:{{ @$contact->phone }}">{{ @$contact->phone }}</a>
                                 </span>
-
                             </li>
                             <li>
                                 <span>
                                     <i class="fa fa-envelope"></i>
                                     <a href="mailto:{{ @$contact->email }}">{{ @$contact->email }}</a>
                                 </span>
-
                             </li>
                         </ul>
 
