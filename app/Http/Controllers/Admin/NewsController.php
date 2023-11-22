@@ -25,7 +25,7 @@ class NewsController extends Controller
         $this->middleware(['permission:news create,admin'])->only(['create', 'store']);
         $this->middleware(['permission:news update,admin'])->only(['edit', 'update']);
         $this->middleware(['permission:news delete,admin'])->only(['destroy']);
-        $this->middleware(['permission:news all-access,admin'])->only(['toggleBeritaStatus']);
+        $this->middleware(['permission:news all-access,admin'])->only(['toggleBeritaStatus', 'approveNews']);
     }
 
     /**
@@ -154,9 +154,9 @@ class NewsController extends Controller
     {
         $news = News::findOrFail($id);
 
-        if ($news->auther_id != auth()->guard('admin')->user()->id || getRole() != 'Super Admin') {
-            return abort(404);
-        }
+        // if ($news->auther_id != auth()->guard('admin')->user()->id || getRole() != 'Super Admin') {
+        //     return abort(404);
+        // }
 
         /** Untuk gambar */
         $imagePath = $this->handleFileUpload($request, 'image', $news->image);
