@@ -193,7 +193,14 @@
                                 data.message,
                                 'success'
                             )
-                            window.location.reload();
+
+                        } else {
+                            Swal.fire(
+                                'Error!',
+                                data.message,
+                                'error'
+                            )
+
                         }
                     },
                     error: function(data) {
