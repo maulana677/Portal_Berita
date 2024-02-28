@@ -126,7 +126,6 @@
 
         // handle dynamic delete
         $(document).ready(function() {
-
             $('.delete-item').on('click', function(e) {
                 e.preventDefault();
                 Swal.fire({

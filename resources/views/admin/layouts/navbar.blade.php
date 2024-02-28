@@ -2,7 +2,8 @@
     <ul class="navbar-nav navbar-right ml-auto">
         <li class="dropdown"><a href="#" data-toggle="dropdown"
                 class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-                <img alt="image" src="{{ asset('admin/assets/img/avatar/avatar-1.png') }}" class="rounded-circle mr-1">
+                <img alt="image" src="{{ asset(auth()->guard('admin', 'user')->user()->image) }}"
+                    class="rounded-circle mr-1">
                 <div class="d-sm-none d-lg-inline-block">{{ __('admin.Hi') }}, {{ auth()->guard('admin')->user()->name }}
                 </div>
             </a>
