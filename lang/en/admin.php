@@ -117,7 +117,7 @@ return array (
   'Profile' => 'Profile',
   'Settings' => 'Settings',
   'Logout' => 'Logout',
-  'Stisla' => 'Stisla',
+  'Arah News' => 'Arah News',
   'St' => 'St',
   'Starter' => 'Starter',
   'Pages' => 'Pages',

@@ -38,12 +38,7 @@
                                 $news = \App\Models\News::with('category')
                                     ->where('language', $language->lang)
                                     ->where('is_approved', 1)
-                                    ->where(
-                                        'auther_id',
-                                        auth()
-                                            ->guard('admin')
-                                            ->user()->id,
-                                    )
+                                    ->where('auther_id', auth()->guard('admin')->user()->id)
                                     ->orderBy('id', 'ASC')
                                     ->get();
                             }
