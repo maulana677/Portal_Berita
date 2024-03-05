@@ -5,13 +5,13 @@
             @method('PUT')
             <div class="form-group">
                 <label for="">{{ __('admin.Site Name') }}</label>
-                <input type="text" name="site_name" class="form-control" value="{{ $settings['site_name'] }}">
+                <input type="text" name="site_name" class="form-control" value="">
                 @error('site_name')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
             <div class="form-group">
-                <img src="{{ asset($settings['site_logo']) }}" alt="" width="150px"> <br>
+                <img src="" alt="" width="150px"> <br>
                 <label for="">{{ __('admin.Site Logo') }}</label>
                 <input type="file" name="site_logo" class="form-control">
                 @error('site_logo')
@@ -19,7 +19,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <img src="{{ asset($settings['site_favicon']) }}" alt="" width="150px"> <br>
+                <img src="" alt="" width="150px"> <br>
                 <label for="">{{ __('admin.Site Favicon') }}</label>
                 <input type="file" name="site_favicon" class="form-control">
                 @error('site_favicon')

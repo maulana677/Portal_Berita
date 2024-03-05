@@ -1,6 +1,10 @@
 @php
     $languages = \App\Models\Language::where('status', 1)->get();
-    $FeaturedCategories = \App\Models\Category::where(['status' => 1, 'language' => getLanguage(), 'show_at_nav' => 1])->get();
+    $FeaturedCategories = \App\Models\Category::where([
+        'status' => 1,
+        'language' => getLanguage(),
+        'show_at_nav' => 1,
+    ])->get();
     $categories = \App\Models\Category::where(['status' => 1, 'language' => getLanguage(), 'show_at_nav' => 0])->get();
 @endphp
 
