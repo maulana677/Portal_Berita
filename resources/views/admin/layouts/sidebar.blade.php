@@ -20,29 +20,30 @@
             </li>
             <li class="menu-header">{{ __('admin.Starter') }}</li>
 
-            {{--  @if (canAccess(['category index', 'category create', 'category update', 'category delete']))  --}}
-            <li class="{{ setSidebarActive(['admin.category.*']) }}">
-                <a class="nav-link" href="{{ route('admin.category.index') }}"><i class="fas fa-list"></i>
-                    <span>{{ __('admin.Category') }}</span>
-                </a>
-            </li>
-            {{--  @endif  --}}
+            @if (canAccess(['category index', 'category create', 'category update', 'category delete']))
+                <li class="{{ setSidebarActive(['admin.category.*']) }}">
+                    <a class="nav-link" href="{{ route('admin.category.index') }}"><i class="fas fa-list"></i>
+                        <span>{{ __('admin.Category') }}</span>
+                    </a>
+                </li>
+            @endif
 
-            {{--  @if (canAccess(['news index']))  --}}
-            <li class="dropdown {{ setSidebarActive(['admin.berita.*', 'admin.pending.news']) }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-newspaper"></i>
-                    <span>{{ __('admin.News') }}</span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li class="{{ setSidebarActive(['admin.berita.*']) }}">
-                        <a class="nav-link" href="{{ route('admin.berita.index') }}">{{ __('admin.All News') }}</a>
-                    </li>
-                    <li class="{{ setSidebarActive(['admin.pending.news']) }}"><a class="nav-link"
-                            href="{{ route('admin.pending.news') }}">{{ __('admin.Pending News') }}</a>
-                    </li>
-                </ul>
-            </li>
-            {{--  @endif  --}}
+            @if (canAccess(['news index']))
+                <li class="dropdown {{ setSidebarActive(['admin.berita.*', 'admin.pending.news']) }}">
+                    <a href="#" class="nav-link has-dropdown"><i class="fas fa-newspaper"></i>
+                        <span>{{ __('admin.News') }}</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="{{ setSidebarActive(['admin.berita.*']) }}">
+                            <a class="nav-link"
+                                href="{{ route('admin.berita.index') }}">{{ __('admin.All News') }}</a>
+                        </li>
+                        <li class="{{ setSidebarActive(['admin.pending.news']) }}"><a class="nav-link"
+                                href="{{ route('admin.pending.news') }}">{{ __('admin.Pending News') }}</a>
+                        </li>
+                    </ul>
+                </li>
+            @endif
 
             @if (canAccess(['about index', 'contact index']))
                 <li class="dropdown {{ setSidebarActive(['admin.about.*', 'admin.contact.*']) }}">
@@ -148,24 +149,24 @@
                 </li>
             @endif
 
-            {{--  @if (canAccess(['access management index']))  --}}
-            <li class="dropdown {{ setSidebarActive(['admin.role.*', 'admin.role-users.*']) }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-user-shield"></i>
-                    <span>{{ __('admin.Access Management') }}</span></a>
-                <ul class="dropdown-menu">
-                    <li class="{{ setSidebarActive(['admin.role-users.*']) }}">
-                        <a class="nav-link" href="{{ route('admin.role-users.index') }}">
-                            {{ __('admin.Role Users') }}
-                        </a>
-                    </li>
-                    <li class="{{ setSidebarActive(['admin.role.*']) }}">
-                        <a class="nav-link" href="{{ route('admin.role.index') }}">
-                            {{ __('admin.Roles and Permissions') }}
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            {{--  @endif  --}}
+            @if (canAccess(['access management index']))
+                <li class="dropdown {{ setSidebarActive(['admin.role.*', 'admin.role-users.*']) }}">
+                    <a href="#" class="nav-link has-dropdown"><i class="fas fa-user-shield"></i>
+                        <span>{{ __('admin.Access Management') }}</span></a>
+                    <ul class="dropdown-menu">
+                        <li class="{{ setSidebarActive(['admin.role-users.*']) }}">
+                            <a class="nav-link" href="{{ route('admin.role-users.index') }}">
+                                {{ __('admin.Role Users') }}
+                            </a>
+                        </li>
+                        <li class="{{ setSidebarActive(['admin.role.*']) }}">
+                            <a class="nav-link" href="{{ route('admin.role.index') }}">
+                                {{ __('admin.Roles and Permissions') }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            @endif
 
             @if (canAccess(['setting index']))
                 <li class="{{ setSidebarActive(['admin.setting.*']) }}">
