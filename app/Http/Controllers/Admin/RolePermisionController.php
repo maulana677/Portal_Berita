@@ -71,7 +71,7 @@ class RolePermisionController extends Controller
         $role->update(['guard_name' => 'admin', 'name' => $request->role]);
 
         /** asign permissions to the role */
-        $role->syncPermissions($request->permissions);
+        // $role->syncPermissions($request->permissions);
 
         toast(__('admin.Updated Successfully!'), 'success');
 
