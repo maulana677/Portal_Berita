@@ -149,7 +149,7 @@
                 </li>
             @endif
 
-            {{--  @if (canAccess(['access management index']))  --}}
+            @if (canAccess(['access management index']))
                 <li class="dropdown {{ setSidebarActive(['admin.role.*', 'admin.role-users.*']) }}">
                     <a href="#" class="nav-link has-dropdown"><i class="fas fa-user-shield"></i>
                         <span>{{ __('admin.Access Management') }}</span></a>
@@ -166,7 +166,7 @@
                         </li>
                     </ul>
                 </li>
-            {{--  @endif  --}}
+            @endif
 
             @if (canAccess(['setting index']))
                 <li class="{{ setSidebarActive(['admin.setting.*']) }}">

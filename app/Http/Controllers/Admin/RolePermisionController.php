@@ -13,13 +13,13 @@ use Spatie\Permission\Models\Role;
 
 class RolePermisionController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware(['permission:access management index,admin'])->only(['index']);
-    //     $this->middleware(['permission:access management create,admin'])->only(['create', 'store']);
-    //     $this->middleware(['permission:access management update,admin'])->only(['edit', 'update', 'handleTitle']);
-    //     $this->middleware(['permission:access management delete,admin'])->only(['destroy']);
-    // }
+    public function __construct()
+    {
+        $this->middleware(['permission:access management index,admin'])->only(['index']);
+        $this->middleware(['permission:access management create,admin'])->only(['create', 'store']);
+        $this->middleware(['permission:access management update,admin'])->only(['edit', 'update', 'handleTitle']);
+        $this->middleware(['permission:access management delete,admin'])->only(['destroy']);
+    }
 
     function index(): View
     {
@@ -71,7 +71,7 @@ class RolePermisionController extends Controller
         $role->update(['guard_name' => 'admin', 'name' => $request->role]);
 
         /** asign permissions to the role */
-        // $role->syncPermissions($request->permissions);
+        $role->syncPermissions($request->permissions);
 
         toast(__('admin.Updated Successfully!'), 'success');
 
